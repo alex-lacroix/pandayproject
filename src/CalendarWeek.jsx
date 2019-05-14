@@ -84,19 +84,18 @@ class CalendarWeek extends Component {
         console.log("rendering...");
         times.push(<div className="row timecell" />);
       }
+      return <div className="row timecell" />;
     };
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat); //format the date as D
-        days.push(
-          <div className="col weekcell">
-            <span>{formattedDate}</span>
-          </div>
-        );
+        days.push(<div className="col weekcell" />);
         day = dateFns.addDays(day, 1);
       }
-      rows.push(<div className="row">{days}</div>);
+      for (let i = 0; i < 24; i++) {
+        rows.push(<div className="row">{days}</div>);
+      }
     }
     return <div className="body">{rows}</div>;
   };
