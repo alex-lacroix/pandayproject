@@ -28,7 +28,7 @@ class UnconnectedApp extends Component {
     return (
       <div className="App">
         <header>
-          <div id="logo">
+          <div>
             <span className="icon" />
             <NavBar />
           </div>

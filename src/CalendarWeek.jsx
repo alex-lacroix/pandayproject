@@ -10,27 +10,24 @@ class CalendarWeek extends Component {
       currentDay: new Date()
     };
   }
-  // componentDidMount = () => {
-  //   for (let i = 0; i < 24; i++) {
-  //     console.log("rendering...");
-  //     times.push(<div className="row timecell" />);
-  //   }
-  // };
+
   renderHeader = () => {
     const dateFormat = "MMMM D YYYY";
 
     return (
       <div className="header row flex-middle">
         <div className="col col-start">
-          <div className="icon" onClick={this.prevWeek}>
-            Previous
-          </div>
+          <span className="changedate" onClick={this.prevWeek}>
+            PREVIOUS WEEK
+          </span>
         </div>
         <div className="col col-center">
-          <span>{dateFns.format(this.state.currentWeek, dateFormat)}</span>
+          <div className="text">
+            {dateFns.format(this.state.currentWeek, dateFormat)}
+          </div>
         </div>
         <div className="col col-end" onClick={this.nextWeek}>
-          <div className="icon">Next</div>
+          <span className="changedate">NEXT WEEK</span>
         </div>
       </div>
     );
@@ -44,8 +41,10 @@ class CalendarWeek extends Component {
     for (let i = 0; i < 7; i++) {
       //looping through the days of the week
       days.push(
-        <div className="col col-center" key={i}>
-          {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
+        <div className="col col-center">
+          <div className="text">
+            {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
+          </div>
         </div>
       );
     }
@@ -79,13 +78,6 @@ class CalendarWeek extends Component {
     let times = [];
     let day = startDate;
     let formattedDate = "";
-    let timeCells = () => {
-      for (let i = 0; i < 24; i++) {
-        console.log("rendering...");
-        times.push(<div className="row timecell" />);
-      }
-      return <div className="row timecell" />;
-    };
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {

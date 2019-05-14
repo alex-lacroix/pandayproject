@@ -42,7 +42,7 @@ class UnconnectedSearch extends Component {
           <input
             type="text"
             onChange={this.handleSearch}
-            placeholder="Search here..."
+            className="searchBox searchBar"
           />
         </form>
       </div>

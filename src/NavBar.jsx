@@ -32,6 +32,10 @@ class NavBar extends Component {
             <AddEventDetails />
           </ul>
         </nav>
+        <h1 className="officialName">Panday.</h1>
+        <ul>
+          <Search />
+        </ul>
       </div>
     );
   };

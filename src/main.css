@@ -1,11 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
 body {
-  background-color: #bbb;
+  background-color: rgb(255, 247, 247);
   margin: 0;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
+  background-color: #ff5d5d;
+}
+
+.searchBox {
+  height: 20px;
+  width: 300px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  padding: 20px;
+  margin: 5px;
+  border: none;
+}
+
+.searchBar {
+  background-image: url("/public/searchicon.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  border-radius: 25px;
+  padding-left: 40px;
+}
+
+.officialName {
+  color: white;
+  font-family: "Concert One", sans-serif;
+  font-size: 50px;
+  padding-left: 15px;
 }
 
 .categories {
