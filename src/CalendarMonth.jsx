@@ -15,15 +15,15 @@ class CalendarMonth extends Component {
 
     return (
       <div className="header row flex-middle">
-        <div className="col col-start">
+        <div className="monthCol monthCol-start">
           <div className="icon" onClick={this.prevMonth}>
             chevron_left
           </div>
         </div>
-        <div className="col col-center">
+        <div className="monthCol monthCol-center">
           <span>{dateFns.format(this.state.currentMonth, dateFormat)}</span>
         </div>
-        <div className="col col-end" onClick={this.nextMonth}>
+        <div className="monthCol monthCol-end" onClick={this.nextMonth}>
           <div className="icon">chevron_right</div>
         </div>
       </div>
@@ -38,12 +38,12 @@ class CalendarMonth extends Component {
     for (let i = 0; i < 7; i++) {
       //looping through the days of the week
       days.push(
-        <div className="col col-center" key={i}>
+        <div className="monthCol monthCol-center" key={i}>
           {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
         </div>
       );
     }
-    return <div className="days row">{days}</div>;
+    return <div className="days monthRow">{days}</div>;
   };
 
   renderCells = () => {
@@ -64,7 +64,7 @@ class CalendarMonth extends Component {
         const cloneDay = day; //prevents onClick event to always take endDate as clicked value
         days.push(
           <div
-            className={`col cell ${
+            className={`monthCol cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
                 : dateFns.isSameDay(day, selectedDate)
@@ -81,7 +81,7 @@ class CalendarMonth extends Component {
         day = dateFns.addDays(day, 1);
       }
       rows.push(
-        <div className="row" key={day}>
+        <div className="monthRow" key={day}>
           {days}
         </div>
       );
@@ -109,7 +109,7 @@ class CalendarMonth extends Component {
   };
   render = () => {
     return (
-      <div className="calendar">
+      <div className="monthCalendar">
         {this.renderHeader()}
         {this.renderDays()}
         {this.renderCells()}

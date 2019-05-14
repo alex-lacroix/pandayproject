@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import NavBar from "./NavBar.jsx";
 import CalendarMonth from "./CalendarMonth.jsx";
 import CalendarWeek from "./CalendarWeek.jsx";
-import "./calendar.css";
+import "./calendarmonth.css";
+import "./calendarweek.css";
 
 class UnconnectedApp extends Component {
   componentDidMount = () => {
@@ -33,7 +34,6 @@ class UnconnectedApp extends Component {
           </div>
         </header>
         <main>
-          <CalendarMonth />
           <CalendarWeek />
         </main>
       </div>
