@@ -5,7 +5,6 @@ import "./calendarmonth.css";
 import "./calendarweek.css";
 import { Provider } from "react-redux";
 import store from "./store.jsx";
-import "./calendar.css";
 
 ReactDOM.render(
   <Provider store={store}>
