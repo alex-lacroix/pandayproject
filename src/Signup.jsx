@@ -8,17 +8,17 @@ class UnconnectedSignup extends Component {
   }
 
   handleUsernameChange = event => {
-    console.log("new username: ", event.target.value);
+    console.log("signup username: ", event.target.value);
     this.setState({ username: event.target.value });
   };
 
   handlePasswordChange = event => {
-    console.log("new password: ", event.target.value);
+    console.log("signup password: ", event.target.value);
     this.setState({ password: event.target.value });
   };
 
   handleEmailChange = event => {
-    console.log("new email: ", event.target.value);
+    console.log("signup email: ", event.target.value);
     this.setState({ email: event.target.value });
   };
 
@@ -54,6 +54,10 @@ class UnconnectedSignup extends Component {
               return;
             }
             this.props.dispatch({ type: "login-success" });
+            this.props.dispatch({
+              type: "set-username",
+              username: this.state.username
+            });
           });
       });
   };

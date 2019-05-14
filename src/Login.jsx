@@ -7,12 +7,12 @@ class UnconnectedLogin extends Component {
     this.state = { username: "", password: "" };
   }
   handleUsernameChange = event => {
-    console.log("new username: ", event.target.value);
+    console.log("login username: ", event.target.value);
     this.setState({ username: event.target.value });
   };
 
   handlePasswordChange = event => {
-    console.log("new password: ", event.target.value);
+    console.log("login password: ", event.target.value);
     this.setState({ password: event.target.value });
   };
 
@@ -36,6 +36,10 @@ class UnconnectedLogin extends Component {
           return;
         }
         this.props.dispatch({ type: "login-success" });
+        this.props.dispatch({
+          type: "set-username",
+          username: this.state.username
+        });
       });
   };
 
