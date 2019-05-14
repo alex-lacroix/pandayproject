@@ -8,11 +8,13 @@ class UnconnectedPickCategory extends Component {
   }
 
   handleApptCategory = () => {
+    this.props.toggleCategoriesDropdown();
     this.setState({ category: "appointment" });
     this.props.dispatch({
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDetailsDropdown();
   };
   handleSchoolCategory = () => {
     this.setState({ category: "school" });
@@ -20,6 +22,7 @@ class UnconnectedPickCategory extends Component {
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDropdown();
   };
   handleSocialCategory = () => {
     this.setState({ category: "social" });
@@ -27,6 +30,7 @@ class UnconnectedPickCategory extends Component {
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDropdown();
   };
   handleWorkCategory = () => {
     this.setState({ category: "work" });
@@ -34,13 +38,12 @@ class UnconnectedPickCategory extends Component {
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDropdown();
   };
   render = () => {
     let customCSS = {
       height: `${this.props.categoriesHeight}px`,
-      borderColor: `${
-        this.props.categoriesHeight === 0 ? "transparent" : "gold"
-      }`
+      border: `${this.props.categoriesHeight === 0 ? "none" : "1px solid gold"}`
     };
     return (
       <div className="categories-dropdown" style={customCSS}>

@@ -56,7 +56,18 @@ body {
 
 .categories-dropdown {
   background: #fff;
-  border: 1px solid gold;
+  border: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  overflow: hidden;
+  z-index: 3;
+  transition: all linear 500ms;
+}
+
+.event-details-dropdown {
+  background: #fff;
+  border: none;
   position: absolute;
   top: 50px;
   left: 0;

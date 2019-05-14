@@ -67,8 +67,14 @@ class UnconnectedAddEventDetails extends Component {
   };
 
   render = () => {
+    let customCSS = {
+      height: `${this.props.eventDetailsHeight}px`,
+      borderColor: `${
+        this.props.eventDetailsHeight === 0 ? "transparent" : "gold"
+      }`
+    };
     return (
-      <div>
+      <div className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

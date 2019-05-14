@@ -8,35 +8,47 @@ class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      categoriesHeight: 0
+      categoriesHeight: 0,
+      eventDetailsHeight: 0
     };
   }
-  toggleDropdown = () => {
+  toggleCategoriesDropdown = () => {
+    if (this.state.eventDetailsHeight > 0) return;
     this.setState({
       categoriesHeight: this.state.categoriesHeight === 0 ? 200 : 0
     });
   };
+  toggleDetailsDropdown = () => {
+    this.setState({
+      eventDetailsHeight: this.state.eventDetailsHeight === 0 ? 200 : 0
+    });
+  };
   render = () => {
     return (
-      <div className="navbar">
-        <h1>Panday</h1>
-        <nav>
-          <ul>
-            <Search />
-            <li className="categories">
-              <p onClick={this.toggleDropdown} className="categories-toggle">
-                +
-              </p>
-              <PickCategory categoriesHeight={this.state.categoriesHeight} />
-            </li>
-            <AddEventDetails />
-          </ul>
-        </nav>
+      <nav className="navbar">
         <h1 className="officialName">Panday.</h1>
         <ul>
           <Search />
+          <li className="categories">
+            <p
+              onClick={this.toggleCategoriesDropdown}
+              className="categories-toggle"
+            >
+              +
+            </p>
+            <PickCategory
+              categoriesHeight={this.state.categoriesHeight}
+              toggleCategoriesDropdown={this.toggleCategoriesDropdown}
+              toggleDetailsDropdown={this.toggleDetailsDropdown}
+            />
+          </li>
+          <li className="event-details">
+            <AddEventDetails
+              eventDetailsHeight={this.state.eventDetailsHeight}
+            />
+          </li>
         </ul>
-      </div>
+      </nav>
     );
   };
 }
