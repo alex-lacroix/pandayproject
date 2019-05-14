@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import NavBar from "./NavBar.jsx";
 import CalendarMonth from "./CalendarMonth.jsx";
 import CalendarWeek from "./CalendarWeek.jsx";
 import "./calendar.css";
@@ -28,7 +29,7 @@ class UnconnectedApp extends Component {
         <header>
           <div id="logo">
             <span className="icon" />
-            <span>Panday</span>
+            <NavBar />
           </div>
         </header>
         <main>

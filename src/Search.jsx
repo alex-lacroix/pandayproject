@@ -31,6 +31,7 @@ class UnconnectedSearch extends Component {
           type: "store-search-results",
           searchResults: body.searchResults
         });
+        console.log(body);
       });
   };
 
