@@ -1,4 +1,9 @@
 body {
-    background-color: #bbb;
-    margin: 0;
+  background-color: #bbb;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
 }
