@@ -302,7 +302,7 @@ span:hover::before {
 }
 
 .calendar .body .row {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1.1px dotted var(--border-color);
 }
 
 .timecol {
@@ -311,13 +311,13 @@ span:hover::before {
 
 .timecell {
   position: relative;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px dotted var(--border-color);
   height: 2em;
 }
 
 .timecol .time {
   display: flex;
-  width: 50px;
+  width: 55px;
   flex-direction: column;
   color: #ff5d5d;
   font-size: 10px;
@@ -340,6 +340,6 @@ span:hover::before {
 }
 
 .calendar .body .weekcell:hover {
-  background-color: #f7ecc3;
+  background-color: #ffeef0;
   opacity: 50%;
 }

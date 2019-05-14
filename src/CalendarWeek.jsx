@@ -34,7 +34,7 @@ class CalendarWeek extends Component {
   };
 
   renderDays = () => {
-    const dateFormat = "dddd";
+    const dateFormat = "dddd D";
     const days = [];
 
     let startDate = dateFns.startOfWeek(this.state.currentWeek);
@@ -75,7 +75,6 @@ class CalendarWeek extends Component {
     const rows = [];
 
     let days = [];
-    let times = [];
     let day = startDate;
     let formattedDate = "";
 
@@ -94,7 +93,7 @@ class CalendarWeek extends Component {
 
   renderTime = () => {
     const { currentDay } = this.state;
-    const hourFormat = "H A";
+    const hourFormat = "H:mm A";
     const startDay = dateFns.startOfDay(currentDay);
     const timeCol = [];
 
