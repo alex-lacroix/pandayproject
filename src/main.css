@@ -7,3 +7,31 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.categories {
+  position: relative;
+  list-style: none;
+}
+
+.categories-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  font-size: 32px;
+}
+
+.categories-dropdown {
+  background: #fff;
+  border: 1px solid gold;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  overflow: hidden;
+  z-index: 3;
+  transition: all linear 500ms;
+}

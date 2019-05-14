@@ -13,6 +13,9 @@ let reducer = (state, action) => {
   if (action.type === "set-username") {
     return { ...state, username: action.username };
   }
+  if (action.type === "set-category") {
+    return { ...state, category: action.category };
+  }
   if (action.type === "store-search-results") {
     return { ...state, searchResults: action.searchResults };
   }
@@ -21,7 +24,7 @@ let reducer = (state, action) => {
 
 const store = createStore(
   reducer,
-  { loggedIn: false, searchResults: [], username: "" },
+  { loggedIn: false, searchResults: [], username: "", category: "" },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 export default store;
