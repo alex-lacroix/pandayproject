@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import CalendarMonth from "./CalendarMonth.jsx";
 import CalendarWeek from "./CalendarWeek.jsx";
-import "./calendar.css";
+import "./calendarmonth.css";
+import "./calendarweek.css";
 
 class App extends Component {
   render = () => {
@@ -14,7 +15,6 @@ class App extends Component {
           </div>
         </header>
         <main>
-          <CalendarMonth />
           <CalendarWeek />
         </main>
       </div>
