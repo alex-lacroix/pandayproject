@@ -1,10 +1,133 @@
-/* FONT IMPORTS */
-@font-face {
-  font-family: "Toriga";
-  src: url("/public/Toriga.otf");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* FONT IMPORTS */
+@import url("https://fonts.googleapis.com/css?family=Concert+One|Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
 .icon {
-  font-family: "Material Icons", serif;
+  font-family: "Quicksand", sans-serif;
   font-style: normal;
   display: inline-block;
   vertical-align: middle;
@@ -26,7 +149,7 @@
 :root {
   --text-color: #777;
   --text-color-light: #ccc;
-  --border-color: #eee;
+  --border-color: #fda185;
   --bg-color: #f9f9f9;
   --neutral-color: #fff;
 }
@@ -38,8 +161,7 @@
 }
 
 body {
-  font-family: "Toriga Medium", "Helvetica Neue", "Helvetica", "Arial",
-    sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 1em;
   font-weight: 300;
   line-height: 1.5;
@@ -49,18 +171,18 @@ body {
 }
 
 header {
-  display: block;
-  width: 100%;
-  padding: 1.75em 0;
+  background-color: #ff5d5d;
   border-bottom: 1px solid var(--border-color);
-  background: var(--neutral-color);
+  display: block;
+  height: 80px;
+  width: 100%;
 }
 
 main {
   display: block;
   margin: 0 auto;
-  margin-top: 20px;
-  max-width: 50em;
+  margin-left: 3em;
+  margin-top: 2em;
 }
 
 /* GRID */
@@ -99,7 +221,42 @@ main {
   text-align: right;
 }
 
+span {
+  position: relative;
+}
+
+span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffe88a;
+  transform-origin: center;
+  transform: translate(-50%, 0) scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+span:hover::before {
+  transform: translate(-50%, 0) scaleX(1);
+}
+
 /* Calendar */
+
+.text {
+  color: white;
+}
+
+.changedate {
+  color: white;
+  font-size: 12px;
+  margin: 15px 15px;
+}
+
+.changedate:hover {
+  cursor: pointer;
+}
 
 .calendar {
   display: block;
@@ -107,14 +264,17 @@ main {
   width: 100%;
   background: var(--neutral-color);
   border: 1px solid var(--border-color);
+  border-radius: 25px 25px 0px 0px;
 }
 
 .calendar .header {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 115%;
-  padding: 1.5em 0;
+  background-color: #f97f69;
   border-bottom: 1px solid var(--border-color);
+  font-family: "Montserrat", sans-serif;
+  font-size: 130%;
+  font-weight: 700;
+  padding: 1em 0;
+  border-radius: 25px 25px 0px 0px;
 }
 
 .calendar .header .icon {
@@ -131,6 +291,8 @@ main {
 }
 
 .calendar .days {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fda185;
   text-transform: uppercase;
   font-weight: 400;
   color: var(--text-color-light);
@@ -144,7 +306,7 @@ main {
 }
 
 .timecol {
-  padding-top: 5em;
+  padding-top: 4.88em;
 }
 
 .timecell {
@@ -157,19 +319,27 @@ main {
   display: flex;
   width: 50px;
   flex-direction: column;
+  color: #ff5d5d;
   font-size: 10px;
   padding-right: 10px;
-  padding-top: 30px;
+  padding-top: 25px;
 }
 
 .calendarweek {
   display: flex;
+  width: 80em;
+  margin-bottom: 15px;
 }
 
 .calendar .body .weekcell {
   position: relative;
-  height: 40px;
+  height: 39px;
   border-right: 1px solid var(--border-color);
   overflow: hidden;
   cursor: pointer;
+}
+
+.calendar .body .weekcell:hover {
+  background-color: #f7ecc3;
+  opacity: 50%;
 }

@@ -6,7 +6,7 @@ class NavBar extends Component {
   render = () => {
     return (
       <div className="navbar">
-        <h1>Panday</h1>
+        <h1 className="officialName">Panday.</h1>
         <ul>
           <Search />
         </ul>
