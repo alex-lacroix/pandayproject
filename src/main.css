@@ -6,9 +6,13 @@ body {
 }
 
 .navbar {
-  display: flex;
   justify-content: space-between;
   background-color: #ff5d5d;
+}
+
+.ul {
+  display: flex;
+  flex-direction: row;
 }
 
 .searchBox {
@@ -43,14 +47,17 @@ body {
 }
 
 .categories-toggle {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 50%;
+  color: #f97f69;
   cursor: pointer;
-  width: 50px;
+  display: flex;
   height: 50px;
+  justify-content: center;
+  padding-bottom: 4px;
+  width: 50px;
   font-size: 32px;
 }
 

@@ -25,30 +25,28 @@ class NavBar extends Component {
   };
   render = () => {
     return (
-      <nav className="navbar">
-        <h1 className="officialName">Panday.</h1>
-        <ul>
+      <ul className="ul">
+        <li className="officialName">Panday.</li>
+        <li className="categories">
+          <p
+            onClick={this.toggleCategoriesDropdown}
+            className="categories-toggle"
+          >
+            +
+          </p>
+          <PickCategory
+            categoriesHeight={this.state.categoriesHeight}
+            toggleCategoriesDropdown={this.toggleCategoriesDropdown}
+            toggleDetailsDropdown={this.toggleDetailsDropdown}
+          />
+        </li>
+        <li className="event-details">
+          <AddEventDetails eventDetailsHeight={this.state.eventDetailsHeight} />
+        </li>
+        <li>
           <Search />
-          <li className="categories">
-            <p
-              onClick={this.toggleCategoriesDropdown}
-              className="categories-toggle"
-            >
-              +
-            </p>
-            <PickCategory
-              categoriesHeight={this.state.categoriesHeight}
-              toggleCategoriesDropdown={this.toggleCategoriesDropdown}
-              toggleDetailsDropdown={this.toggleDetailsDropdown}
-            />
-          </li>
-          <li className="event-details">
-            <AddEventDetails
-              eventDetailsHeight={this.state.eventDetailsHeight}
-            />
-          </li>
-        </ul>
-      </nav>
+        </li>
+      </ul>
     );
   };
 }
