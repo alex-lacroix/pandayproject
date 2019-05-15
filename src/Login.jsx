@@ -32,7 +32,11 @@ class UnconnectedLogin extends Component {
       .then(ResponseBody => {
         let body = JSON.parse(ResponseBody);
         if (!body.success) {
-          alert("login failed.. ");
+          alert("Incorrect password!");
+          return;
+        }
+        if (!body.doesUserExist) {
+          alert("Please create an account!");
           return;
         }
         this.props.dispatch({ type: "login-success" });

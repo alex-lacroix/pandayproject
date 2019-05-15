@@ -61,6 +61,11 @@ body {
   font-size: 32px;
 }
 
+.categories-toggle:hover {
+  background-color: #ffeef0;
+  opacity: 50%;
+}
+
 .categories-dropdown {
   background: #fff;
   border: none;
@@ -99,4 +104,58 @@ body {
 .logout-button {
   position: absolute;
   right: 10px;
+  background-color: white;
+  border: none;
+  color: #f97f69;
+  padding: 14px 28px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 15px;
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.logout-button:hover {
+  background-color: #ffeef0;
+  opacity: 50%;
+}
+
+.add-to-calendar {
+  background-color: #fda185;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.event-date,
+.event-time,
+.event-title {
+  color: #777;
+  border-radius: 25px;
+  padding: 5px 10px;
+  border: solid 1px #fda185;
+  margin: 5px;
+}
+
+.event-hours,
+.event-minutes {
+  color: #777;
+  border-radius: 25px;
+  width: 60px;
+  padding: 5px 10px;
+  border: solid 1px #fda185;
+  margin: 5px;
+}
+
+.event-notes {
+  resize: none;
+  color: #777;
+  border-radius: 25px;
+  padding: 10px 5px 10px 10px;
+  border: solid 1px #fda185;
+  margin: 5px;
 }
