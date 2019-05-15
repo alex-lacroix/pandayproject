@@ -8,59 +8,75 @@ class UnconnectedPickCategory extends Component {
   }
 
   handleApptCategory = () => {
+    this.props.toggleCategoriesDropdown();
     this.setState({ category: "appointment" });
     this.props.dispatch({
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDetailsDropdown();
   };
   handleSchoolCategory = () => {
+    this.props.toggleCategoriesDropdown();
     this.setState({ category: "school" });
     this.props.dispatch({
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDetailsDropdown();
   };
   handleSocialCategory = () => {
+    this.props.toggleCategoriesDropdown();
     this.setState({ category: "social" });
     this.props.dispatch({
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDetailsDropdown();
   };
   handleWorkCategory = () => {
+    this.props.toggleCategoriesDropdown();
     this.setState({ category: "work" });
     this.props.dispatch({
       type: "set-category",
       category: this.state.category
     });
+    this.props.toggleDetailsDropdown();
   };
   render = () => {
     let customCSS = {
       height: `${this.props.categoriesHeight}px`,
-      borderColor: `${
-        this.props.categoriesHeight === 0 ? "transparent" : "gold"
-      }`
+      border: `${
+        this.props.categoriesHeight === 0 ? "none" : "1px solid #fbbe84"
+      }`,
+      padding: `${this.props.categoriesHeight === 0 ? 0 : 10}`
     };
     return (
       <div className="categories-dropdown" style={customCSS}>
         <img
+          className="category-pics"
           src="/appointment.png"
-          height="100"
           onClick={this.handleApptCategory}
+          alt="appointment"
         />
         <img
+          className="category-pics"
           src="/school.jpg"
-          height="100"
           onClick={this.handleSchoolCategory}
           alt="school"
         />
         <img
+          className="category-pics"
           src="/social.jpg"
-          height="100"
           onClick={this.handleSocialCategory}
+          alt="social"
         />
-        <img src="/work.png" height="100" onClick={this.handleWorkCategory} />
+        <img
+          className="category-pics"
+          src="/work.png"
+          onClick={this.handleWorkCategory}
+          alt="work"
+        />
       </div>
     );
   };

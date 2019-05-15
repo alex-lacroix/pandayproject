@@ -9,12 +9,22 @@ class UnconnectedNavBar extends Component {
   constructor() {
     super();
     this.state = {
-      categoriesHeight: 0
+      categoriesHeight: 0,
+      eventDetailsHeight: 0
     };
   }
-  toggleDropdown = () => {
+  toggleCategoriesDropdown = () => {
+    let modalIsOpen =
+      this.state.categoriesHeight === 250 ||
+      this.state.eventDetailsHeight === 250;
     this.setState({
-      categoriesHeight: this.state.categoriesHeight === 0 ? 200 : 0
+      categoriesHeight: modalIsOpen ? 0 : 250,
+      eventDetailsHeight: 0
+    });
+  };
+  toggleDetailsDropdown = () => {
+    this.setState({
+      eventDetailsHeight: this.state.eventDetailsHeight === 0 ? 250 : 0
     });
   };
 
@@ -47,12 +57,22 @@ class UnconnectedNavBar extends Component {
           <li className="officialName">Panday.</li>
           <li>{this.renderDisplayButton()}</li>
           <li className="categories">
-            <p onClick={this.toggleDropdown} className="categories-toggle">
+            <p
+              onClick={this.toggleCategoriesDropdown}
+              className="categories-toggle"
+            >
               +
             </p>
-            <PickCategory categoriesHeight={this.state.categoriesHeight} />
+            <PickCategory
+              categoriesHeight={this.state.categoriesHeight}
+              toggleCategoriesDropdown={this.toggleCategoriesDropdown}
+              toggleDetailsDropdown={this.toggleDetailsDropdown}
+            />
+            <AddEventDetails
+              eventDetailsHeight={this.state.eventDetailsHeight}
+              toggleDetailsDropdown={this.toggleDetailsDropdown}
+            />
           </li>
-          {/* <AddEventDetails /> */}
           <li>
             <Search />
           </li>
