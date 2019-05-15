@@ -79,18 +79,58 @@ class UnconnectedAddEventDetails extends Component {
       <div className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="event-title"
             type="text"
             onChange={this.handleEventTitle}
             placeholder="Title"
+            required
           />
-          <input type="date" onChange={this.handleEventDate} />
-          <input type="time" onChange={this.handleEventTime} />
-          <input type="number" onChange={this.handleEventDurationHour} />
+
+          <input
+            className="event-date"
+            type="date"
+            onChange={this.handleEventDate}
+            required
+          />
+          <input
+            className="event-time"
+            type="time"
+            onChange={this.handleEventTime}
+            required
+          />
+          <input
+            className="event-hours"
+            type="number"
+            min="0"
+            max="24"
+            placeholder="0"
+            onChange={this.handleEventDurationHour}
+            required
+          />
           <span>Hours</span>
-          <input type="number" onChange={this.handleEventDurationMinutes} />
+          <input
+            className="event-minutes"
+            type="number"
+            min="0"
+            max="59"
+            placeholder="0"
+            step="5"
+            onChange={this.handleEventDurationMinutes}
+            required
+          />
           <span>Minutes</span>
-          <textarea rows="3" cols="30" onChange={this.handleEventNotes} />
-          <input type="submit" value="Add to Calendar" />
+          <textarea
+            className="event-notes"
+            rows="5"
+            cols="30"
+            maxLength="140"
+            onChange={this.handleEventNotes}
+          />
+          <input
+            className="add-to-calendar"
+            type="submit"
+            value="Add to Calendar"
+          />
         </form>
       </div>
     );

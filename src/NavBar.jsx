@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Search from "./Search.jsx";
 import PickCategory from "./PickCategory.jsx";
 import AddEventDetails from "./AddEventDetails.jsx";
+import Logout from "./Logout.jsx";
 import "./main.css";
 
 class UnconnectedNavBar extends Component {
@@ -16,7 +17,7 @@ class UnconnectedNavBar extends Component {
   toggleCategoriesDropdown = () => {
     let modalIsOpen =
       this.state.categoriesHeight === 250 ||
-      this.state.eventDetailsHeight === 250;
+      this.state.eventDetailsHeight === 290;
     this.setState({
       categoriesHeight: modalIsOpen ? 0 : 250,
       eventDetailsHeight: 0
@@ -24,7 +25,7 @@ class UnconnectedNavBar extends Component {
   };
   toggleDetailsDropdown = () => {
     this.setState({
-      eventDetailsHeight: this.state.eventDetailsHeight === 0 ? 250 : 0
+      eventDetailsHeight: this.state.eventDetailsHeight === 0 ? 290 : 0
     });
   };
 
@@ -75,6 +76,9 @@ class UnconnectedNavBar extends Component {
           </li>
           <li>
             <Search />
+          </li>
+          <li>
+            <Logout />
           </li>
         </ul>
       </nav>
