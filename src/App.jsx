@@ -5,6 +5,11 @@ import CalendarMonth from "./CalendarMonth.jsx";
 import CalendarWeek from "./CalendarWeek.jsx";
 import "./calendarmonth.css";
 import "./calendarweek.css";
+import "./login.css";
+import "./signup.css";
+import Login from "./Login.jsx";
+import { Route, withRouter } from "react-router-dom";
+import Signup from "./Signup.jsx";
 
 class UnconnectedApp extends Component {
   constructor(props) {
@@ -36,16 +41,21 @@ class UnconnectedApp extends Component {
     return <CalendarMonth />;
   };
 
+  renderLogin = () => {
+    return <Login />;
+  };
+
+  renderSignup = () => {
+    return <Signup />;
+  };
+
   render = () => {
     return (
-      <div className="App">
-        <header>
-          <div>
-            <span className="icon" />
-            <NavBar />
-          </div>
-        </header>
-        <main>{this.renderCalendar()}</main>
+      <div>
+        <div className="App">
+          <Route exact={true} path="/login" render={this.renderLogin} />
+          <Route exact={true} path="/signup" render={this.renderSignup} />
+        </div>
       </div>
     );
   };
@@ -55,4 +65,4 @@ let mapStateToProps = state => {
 };
 
 let App = connect(mapStateToProps)(UnconnectedApp);
-export default App;
+export default withRouter(App);

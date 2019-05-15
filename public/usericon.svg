@@ -1,0 +1,15 @@
+
+<svg contentScriptType="text/ecmascript" zoomAndPan="magnify"
+     xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css"
+     id="Layer_1" version="1.0" width="64" preserveAspectRatio="xMidYMid meet"
+     viewBox="0 0 64 64" data-name="Layer 1" height="64"
+     xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style type="text/css" xml:space="preserve">.cls-1{fill:#FF5D5D;}</style>
+    </defs><title>
+        user_2
+    </title>
+    <path fill="#FF5D5D"
+          d="M36.7,32.66a13,13,0,1,0-11.41,0A25,25,0,0,0,6,57a1,1,0,0,0,2,0,23,23,0,0,1,46,0,1,1,0,0,0,2,0A25,25,0,0,0,36.7,32.66ZM20,21A11,11,0,1,1,31,32,11,11,0,0,1,20,21Z"
+          id="user_2" class="cls-1"/>
+</svg>
