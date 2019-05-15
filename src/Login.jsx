@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Route, withRouter, Link } from "react-router-dom";
 
 class UnconnectedLogin extends Component {
   constructor(props) {
@@ -43,22 +44,40 @@ class UnconnectedLogin extends Component {
       });
   };
 
+  renderSignup = () => {
+    event.preventDefault();
+  };
+
   render = () => {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="loginBody">
+        <h1 className="name">Panday.</h1>
+        <form className="loginContainer" onSubmit={this.handleSubmit}>
+          <h3 className="loginTitle">MEMBER LOGIN</h3>
           <input
             type="text"
             onChange={this.handleUsernameChange}
             placeholder="Username"
+            className="loginForm"
           />
           <input
-            type="text"
+            type="password"
             onChange={this.handlePasswordChange}
             placeholder="Password"
+            className="passForm"
           />
-          <input type="submit" value="Log in!" />
+          <input type="submit" value="Login Now" className="loginSubmit" />
         </form>
+        <div className="toSignup">
+          <h2 className="notMember">Not a member?</h2>
+          <div>
+            <Link to="/signup">
+              <button type="button" className="createButton">
+                Create account
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     );
   };
@@ -66,4 +85,4 @@ class UnconnectedLogin extends Component {
 
 let Login = connect()(UnconnectedLogin);
 
-export default Login;
+export default withRouter(Login);

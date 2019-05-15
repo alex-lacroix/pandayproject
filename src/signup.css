@@ -126,8 +126,8 @@ table {
 @import url("https://fonts.googleapis.com/css?family=Concert+One|Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-.loginBody {
-  background-image: linear-gradient(to top right, #ff5d5d, #ffe88a);
+.signupBody {
+  background-image: linear-gradient(to top right, #6078ea, #17ead9);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -136,15 +136,14 @@ table {
   text-align: center;
 }
 
-.loginContainer {
+.signupContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 12em;
+  margin-top: 6em;
 }
 
-.loginForm {
+.signupForm {
   background-color: rgb(255, 255, 255, 0.3);
-  background-image: url("/usericon.svg");
   background-position: 10px 10px;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -155,98 +154,87 @@ table {
   letter-spacing: 2px;
   display: inline-block;
   height: 45px;
-  margin: 10px auto;
+  margin: 0px auto 10px;
   text-align: center;
   width: 280px;
 }
 
-.loginForm::placeholder {
-  color: #ff5d5d;
+.signupForm::placeholder {
+  color: #6078ea;
 }
 
-.loginTitle {
+.signupTitle {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
   margin-bottom: 10px;
 }
 
-.passForm {
-  background-color: rgb(255, 255, 255, 0.3);
-  background-image: url("/passicon.svg");
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  border-color: white;
-  border-radius: 100px;
-  border-style: solid;
+.signupReq {
   font-family: "Montserrat", sans-serif;
+  font-size: 12px;
   letter-spacing: 2px;
-  display: inline-block;
-  height: 45px;
-  margin: 10px auto;
-  text-align: center;
-  width: 280px;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
-.passForm::placeholder {
-  color: #ff5d5d;
-}
-
-.loginSubmit {
-  background-color: #002e63;
+.signupSubmit {
+  background-color: #fda185;
   border: none;
   border-radius: 100px;
   color: white;
   font-family: "Montserrat", sans-serif;
   height: 45px;
   letter-spacing: 2px;
-  margin: 10px auto;
-  opacity: 0.77;
+  margin: 50px auto;
+  opacity: 0.7;
   padding: 0;
   text-align: center;
   transition: 0.3s;
   width: 280px;
 }
 
-.loginSubmit:hover {
-  background-color: #002e63;
-  cursor: pointer;
+.signupSubmit:hover {
   opacity: 1;
 }
 
-.name {
-  color: white;
-  font-family: "Concert One", sans-serif;
-  font-size: 48px;
-  margin-top: 50px;
-}
-
-.toSignup {
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  margin-top: 110px;
-}
-
-.createButton {
-  background-color: rgb(255, 255, 255, 0);
+.passFormSignup {
+  background-color: rgb(255, 255, 255, 0.3);
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  background-size: 20px;
   border-color: white;
   border-radius: 100px;
   border-style: solid;
-  border-width: 1.3px;
-  color: white;
   font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  height: 25px;
   letter-spacing: 2px;
-  margin-top: 10px;
-  transition: 0.3s;
-  width: 150px;
+  display: inline-block;
+  height: 45px;
+  margin: 0px auto 10px;
+  text-align: center;
+  width: 280px;
 }
 
-.createButton:hover {
-  background-color: #f97f69;
-  cursor: pointer;
+.passFormSignup::placeholder {
+  color: #6078ea;
+}
+
+.emailForm {
+  background-color: rgb(255, 255, 255, 0.3);
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  border-color: white;
+  border-radius: 100px;
+  border-style: solid;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 2px;
+  display: inline-block;
+  height: 45px;
+  margin: 0px auto 10px;
+  text-align: center;
+  width: 280px;
+}
+
+.emailForm::placeholder {
+  color: #6078ea;
 }

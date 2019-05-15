@@ -1,0 +1,18 @@
+
+<svg contentScriptType="text/ecmascript" zoomAndPan="magnify"
+     xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css"
+     id="Layer_1" version="1.0" width="64" preserveAspectRatio="xMidYMid meet"
+     viewBox="0 0 64 64" data-name="Layer 1" height="64"
+     xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style type="text/css" xml:space="preserve">.cls-1{fill:#FF5D5D;}</style>
+    </defs><title>
+        padlock_closed_2
+    </title>
+    <path fill="#FF5D5D"
+          d="M14,58H48a4,4,0,0,0,4-4V23a1,1,0,0,0-1-1H46V17a15,15,0,0,0-30,0v5H11a1,1,0,0,0-1,1V54A4,4,0,0,0,14,58Zm4-41a13,13,0,0,1,26,0v5H18V17Zm-6,7H50V54a2,2,0,0,1-2,2H14a2,2,0,0,1-2-2V24Z"
+          class="cls-1"/>
+    <path fill="#FF5D5D"
+          d="M30,39.82V47a1,1,0,0,0,2,0V39.82A3,3,0,1,0,30,39.82ZM31,36a1,1,0,1,1-1,1A1,1,0,0,1,31,36Z"
+          class="cls-1"/>
+</svg>

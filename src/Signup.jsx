@@ -64,24 +64,35 @@ class UnconnectedSignup extends Component {
 
   render = () => {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="signupBody">
+        <h1 className="name">Panday.</h1>
+        <form className="signupContainer" onSubmit={this.handleSubmit}>
+          <h2 className="signupTitle">SIGN UP</h2>
+          <h3 className="signupReq">Choose a username</h3>
           <input
             type="text"
             onChange={this.handleUsernameChange}
             placeholder="Username"
+            className="signupForm"
+            required
           />
+          <h3 className="signupReq">Choose a password (min. 8 characters)</h3>
           <input
-            type="text"
+            type="password"
             onChange={this.handlePasswordChange}
-            placeholder="Password minimum 8 characters"
+            placeholder="Password"
+            className="passFormSignup"
+            required
           />
+          <h3 className="signupReq">Enter your e-mail address</h3>
           <input
             type="text"
             onChange={this.handleEmailChange}
-            placeholder="Email Addresss"
+            placeholder="E-mail Address"
+            className="emailForm"
+            required
           />
-          <input type="submit" value="Sign up!" />
+          <input type="submit" value="Signup Now" className="signupSubmit" />
         </form>
       </div>
     );

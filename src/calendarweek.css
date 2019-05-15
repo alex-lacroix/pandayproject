@@ -147,7 +147,7 @@ table {
 /* VARIABLES */
 
 :root {
-  --text-color: #777;
+  --text-color: white;
   --text-color-light: #ccc;
   --border-color: #fda185;
   --bg-color: #f9f9f9;

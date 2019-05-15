@@ -4,11 +4,14 @@ import App from "./App.jsx";
 import "./calendarmonth.css";
 import "./calendarweek.css";
 import { Provider } from "react-redux";
+import { Route, BrowserRouter } from "react-router-dom";
 import store from "./store.jsx";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
