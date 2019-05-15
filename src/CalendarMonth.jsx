@@ -16,15 +16,17 @@ class CalendarMonth extends Component {
     return (
       <div className="header row flex-middle">
         <div className="monthCol monthCol-start">
-          <div className="icon" onClick={this.prevMonth}>
-            chevron_left
-          </div>
+          <span className="changedate" onClick={this.prevMonth}>
+            PREVIOUS MONTH
+          </span>
         </div>
         <div className="monthCol monthCol-center">
-          <span>{dateFns.format(this.state.currentMonth, dateFormat)}</span>
+          <div className="text">
+            {dateFns.format(this.state.currentMonth, dateFormat)}
+          </div>
         </div>
         <div className="monthCol monthCol-end" onClick={this.nextMonth}>
-          <div className="icon">chevron_right</div>
+          <span className="changedate">NEXT MONTH</span>
         </div>
       </div>
     );

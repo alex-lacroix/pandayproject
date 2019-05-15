@@ -7,6 +7,11 @@ import "./calendarmonth.css";
 import "./calendarweek.css";
 
 class UnconnectedApp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   componentDidMount = () => {
     fetch("http://localhost:4000/autoLogin", { credentials: "include" })
       .then(response => {
@@ -24,6 +29,13 @@ class UnconnectedApp extends Component {
       });
   };
 
+  renderCalendar = () => {
+    if (!this.props.display) {
+      return <CalendarWeek />;
+    }
+    return <CalendarMonth />;
+  };
+
   render = () => {
     return (
       <div className="App">
@@ -33,13 +45,14 @@ class UnconnectedApp extends Component {
             <NavBar />
           </div>
         </header>
-        <main>
-          <CalendarWeek />
-        </main>
+        <main>{this.renderCalendar()}</main>
       </div>
     );
   };
 }
+let mapStateToProps = state => {
+  return { display: state.display };
+};
 
-let App = connect()(UnconnectedApp);
+let App = connect(mapStateToProps)(UnconnectedApp);
 export default App;
