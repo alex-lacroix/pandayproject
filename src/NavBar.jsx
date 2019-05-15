@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Search from "./Search.jsx";
 import PickCategory from "./PickCategory.jsx";
 import AddEventDetails from "./AddEventDetails.jsx";
+import Logout from "./Logout.jsx";
 import "./main.css";
 
 class NavBar extends Component {
@@ -50,6 +51,9 @@ class NavBar extends Component {
           </li>
           <li>
             <Search />
+          </li>
+          <li className="logout-button">
+            <Logout />
           </li>
         </ul>
       </nav>
