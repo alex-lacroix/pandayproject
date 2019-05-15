@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Search from "./Search.jsx";
 import PickCategory from "./PickCategory.jsx";
 import AddEventDetails from "./AddEventDetails.jsx";
 import Logout from "./Logout.jsx";
 import "./main.css";
 
-class NavBar extends Component {
+class UnconnectedNavBar extends Component {
   constructor() {
     super();
     this.state = {
@@ -27,11 +28,35 @@ class NavBar extends Component {
       eventDetailsHeight: this.state.eventDetailsHeight === 0 ? 250 : 0
     });
   };
+
+  renderDisplayButton = () => {
+    let displayToggle = () => {
+      this.setState({ buttonDisplay: !this.state.buttonDisplay });
+      console.log(this.state.buttonDisplay);
+      if (!this.state.buttonDisplay) {
+        this.props.dispatch({ type: "toggle-calendar", payload: true });
+        return;
+      }
+      this.props.dispatch({ type: "toggle-calendar", payload: false });
+    };
+
+    return (
+      <div>
+        <div className="justify-center">
+          <button onClick={displayToggle} className="see-more-button">
+            {this.state.buttonDisplay ? "SEE WEEK" : "SEE MONTH"}
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   render = () => {
     return (
       <nav className="navbar">
         <ul className="ul">
           <li className="officialName">Panday.</li>
+          <li>{this.renderDisplayButton()}</li>
           <li className="categories">
             <p
               onClick={this.toggleCategoriesDropdown}
@@ -60,5 +85,8 @@ class NavBar extends Component {
     );
   };
 }
-
+let mapStateToProps = state => {
+  return { display: state.display };
+};
+let NavBar = connect(mapStateToProps)(UnconnectedNavBar);
 export default NavBar;

@@ -19,12 +19,21 @@ let reducer = (state, action) => {
   if (action.type === "store-search-results") {
     return { ...state, searchResults: action.searchResults };
   }
+  if (action.type === "toggle-calendar") {
+    return { ...state, display: action.payload };
+  }
   return state;
 };
 
 const store = createStore(
   reducer,
-  { loggedIn: false, searchResults: [], username: "", category: "" },
+  {
+    loggedIn: false,
+    searchResults: [],
+    username: "",
+    category: "",
+    display: false
+  },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 export default store;

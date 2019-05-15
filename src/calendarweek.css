@@ -181,8 +181,8 @@ header {
 main {
   display: block;
   margin: 0 auto;
-  margin-left: 3em;
   margin-top: 2em;
+  max-width: 70em;
 }
 
 /* GRID */
@@ -305,6 +305,11 @@ span:hover::before {
   border-bottom: 1.1px dotted var(--border-color);
 }
 
+/* .calendar .body {
+  overflow-y: auto;
+  max-height: 10em;
+} */
+
 .timecol {
   padding-top: 4.88em;
 }
@@ -327,8 +332,10 @@ span:hover::before {
 
 .calendarweek {
   display: flex;
-  width: 80em;
+  width: 70em;
   margin-bottom: 15px;
+  overflow-y: auto;
+  max-height: 100%;
 }
 
 .calendar .body .weekcell {

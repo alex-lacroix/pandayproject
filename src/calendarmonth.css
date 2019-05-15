@@ -1,8 +1,131 @@
-/* FONT IMPORTS */
-@font-face {
-  font-family: "Toriga";
-  src: url("/public/Toriga.otf");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* FONT IMPORTS */
+@import url("https://fonts.googleapis.com/css?family=Concert+One|Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
 .icon {
   font-family: "Material Icons", serif;
   font-style: normal;
@@ -24,8 +147,8 @@
 /* VARIABLES */
 
 :root {
-  --text-color: #777;
-  --text-color-light: #ccc;
+  --text-color: white;
+  --text-color-light: white;
   --border-color: #eee;
   --bg-color: #f9f9f9;
   --neutral-color: #fff;
@@ -50,6 +173,7 @@ body {
 
 header {
   display: block;
+  margin-right: 20em;
   width: 100%;
   padding: 1.75em 0;
   border-bottom: 1px solid var(--border-color);
@@ -60,7 +184,7 @@ main {
   display: block;
   margin: 0 auto;
   margin-top: 20px;
-  max-width: 50em;
+  max-width: 70em;
 }
 
 /* GRID */
@@ -104,13 +228,18 @@ main {
 .monthCalendar {
   display: block;
   position: relative;
+  margin: auto;
   width: 100%;
   background: var(--neutral-color);
+  border-radius: 25px 25px 0px 0px;
   border: 1px solid var(--border-color);
 }
 
 .monthCalendar .header {
+  background-color: #f97f69;
+  border-radius: 25px 25px 0px 0px;
   text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 115%;
   padding: 1.5em 0;
@@ -131,9 +260,11 @@ main {
 }
 
 .monthCalendar .days {
+  background-color: #fda185;
   text-transform: uppercase;
   font-weight: 400;
-  color: var(--text-color-light);
+  color: white;
+  font-family: "Montserrat", sans-serif;
   font-size: 70%;
   padding: 0.75em 0;
   border-bottom: 1px solid var(--border-color);
@@ -173,9 +304,24 @@ main {
   font-weight: 700;
 }
 
+.monthCalendar .body .cell:hover {
+  background-color: #ffeef0;
+  opacity: 50%;
+}
+
 .monthCalendar .body .disabled {
+  background-color: rgb(248, 248, 248);
   color: var(--text-color-light);
+  filter: opacity(50%);
   pointer-events: none;
+}
+
+.monthCalendar.body .enabled {
+  color: #f97f69;
+}
+
+.monthCalendar .body .selected {
+  background-color: #ffeef0;
 }
 
 .monthCalendar .body .cell .bg {
@@ -195,4 +341,8 @@ main {
   flex-grow: 0;
   flex-basis: calc(100% / 7);
   width: calc(100% / 7);
+}
+
+.number {
+  color: #f97f69;
 }
