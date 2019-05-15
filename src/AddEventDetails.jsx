@@ -44,6 +44,7 @@ class UnconnectedAddEventDetails extends Component {
   };
 
   handleSubmit = event => {
+    this.props.toggleDetailsDropdown();
     event.preventDefault();
     let data = new FormData();
     data.append("username", this.props.username);
@@ -69,9 +70,10 @@ class UnconnectedAddEventDetails extends Component {
   render = () => {
     let customCSS = {
       height: `${this.props.eventDetailsHeight}px`,
-      borderColor: `${
-        this.props.eventDetailsHeight === 0 ? "transparent" : "gold"
-      }`
+      border: `${
+        this.props.eventDetailsHeight === 0 ? "none" : "1px solid #fbbe84"
+      }`,
+      padding: `${this.props.eventDetailsHeight === 0 ? 0 : "10px"}`
     };
     return (
       <div className="event-details-dropdown" style={customCSS}>
@@ -88,7 +90,7 @@ class UnconnectedAddEventDetails extends Component {
           <input type="number" onChange={this.handleEventDurationMinutes} />
           <span>Minutes</span>
           <textarea rows="3" cols="30" onChange={this.handleEventNotes} />
-          <input type="submit" value="Create Event" />
+          <input type="submit" value="Add to Calendar" />
         </form>
       </div>
     );

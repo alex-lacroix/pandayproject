@@ -64,21 +64,34 @@ body {
 .categories-dropdown {
   background: #fff;
   border: none;
+  border-radius: 25px;
   position: absolute;
-  top: 50px;
-  left: 0;
+  top: 55px;
+  left: 5px;
   overflow: hidden;
   z-index: 3;
-  transition: all linear 500ms;
+  transition: all linear 50ms;
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
 }
 
 .event-details-dropdown {
   background: #fff;
   border: none;
+  border-radius: 25px;
   position: absolute;
-  top: 50px;
-  left: 0;
+  top: 55px;
+  left: 5px;
   overflow: hidden;
   z-index: 3;
-  transition: all linear 500ms;
+  transition: all linear 50ms;
+  padding: 10px;
+}
+
+.category-pics {
+  height: 100px;
+  margin: 9px;
 }
