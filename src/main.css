@@ -134,6 +134,7 @@ body {
 .event-date,
 .event-time,
 .event-title {
+  font-family: "Montserrat", sans-serif;
   color: #777;
   border-radius: 25px;
   padding: 5px 10px;
@@ -143,6 +144,7 @@ body {
 
 .event-hours,
 .event-minutes {
+  font-family: "Montserrat", sans-serif;
   color: #777;
   border-radius: 25px;
   width: 60px;
@@ -152,6 +154,7 @@ body {
 }
 
 .event-notes {
+  font-family: "Montserrat", sans-serif;
   resize: none;
   color: #777;
   border-radius: 25px;
