@@ -45,7 +45,7 @@ class UnconnectedLogin extends Component {
           type: "set-username",
           username: this.state.username
         });
-        <Link to="/mycalendar" />;
+        this.props.history.push("/mycalendar");
       });
   };
 
@@ -88,6 +88,6 @@ class UnconnectedLogin extends Component {
   };
 }
 
-let Login = connect()(UnconnectedLogin);
+let Login = connect()(withRouter(UnconnectedLogin));
 
-export default withRouter(Login);
+export default Login;
