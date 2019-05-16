@@ -76,63 +76,85 @@ class UnconnectedAddEventDetails extends Component {
       padding: `${this.props.eventDetailsHeight === 0 ? 0 : "10px"}`
     };
     return (
-      <div className="event-details-dropdown" style={customCSS}>
+      <ul className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
-          <input
-            className="event-title"
-            type="text"
-            onChange={this.handleEventTitle}
-            placeholder="Title"
-            required
-          />
+          <li>
+            <span>Title: </span>
+            <input
+              className="event-title"
+              type="text"
+              onChange={this.handleEventTitle}
+              placeholder="Enter title..."
+              required
+            />
+          </li>
 
-          <input
-            className="event-date"
-            type="date"
-            onChange={this.handleEventDate}
-            required
-          />
-          <input
-            className="event-time"
-            type="time"
-            onChange={this.handleEventTime}
-            required
-          />
-          <input
-            className="event-hours"
-            type="number"
-            min="0"
-            max="24"
-            placeholder="0"
-            onChange={this.handleEventDurationHour}
-            required
-          />
-          <span>Hours</span>
-          <input
-            className="event-minutes"
-            type="number"
-            min="0"
-            max="59"
-            placeholder="0"
-            step="5"
-            onChange={this.handleEventDurationMinutes}
-            required
-          />
-          <span>Minutes</span>
-          <textarea
-            className="event-notes"
-            rows="5"
-            cols="30"
-            maxLength="140"
-            onChange={this.handleEventNotes}
-          />
-          <input
-            className="add-to-calendar"
-            type="submit"
-            value="Add to Calendar"
-          />
+          <li>
+            <span>Date: </span>
+            <input
+              className="event-date"
+              type="date"
+              onChange={this.handleEventDate}
+              required
+            />
+          </li>
+          <li>
+            <span>Start Time: </span>
+            <input
+              className="event-time"
+              type="time"
+              onChange={this.handleEventTime}
+              required
+            />
+          </li>
+          <li>
+            <span>How long? </span>
+          </li>
+          <li>
+            <input
+              className="event-hours"
+              type="number"
+              min="0"
+              max="24"
+              placeholder="0"
+              onChange={this.handleEventDurationHour}
+              required
+            />
+            <span>Hours</span>
+          </li>
+          <li>
+            <input
+              className="event-minutes"
+              type="number"
+              min="0"
+              max="59"
+              placeholder="0"
+              step="5"
+              onChange={this.handleEventDurationMinutes}
+              required
+            />
+            <span>Minutes</span>
+          </li>
+          <li>
+            <span>Notes: </span>
+            <textarea
+              className="event-notes"
+              rows="6"
+              cols="30"
+              maxLength="140"
+              onChange={this.handleEventNotes}
+              placeholder="ex. Don't forget.... !"
+            />
+          </li>
+          <li>
+            <input
+              className="add-to-calendar"
+              type="submit"
+              value="Add to Calendar"
+            />
+          </li>
         </form>
-      </div>
+      </ul>
     );
   };
 }
