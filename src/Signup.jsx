@@ -34,10 +34,15 @@ class UnconnectedSignup extends Component {
       })
       .then(ResponseBody => {
         let body = JSON.parse(ResponseBody);
-        if (!body.success) {
-          alert("signup fail");
+        if (body.success === false) {
+          alert("Username taken!");
           return;
         }
+        if (body.passwordLengthSuccess == false) {
+          alert("Password must be minimum 8 characters!");
+          return;
+        }
+
         this.props.dispatch({ type: "signup-success" });
         return fetch("http://localhost:4000/login", {
           method: "POST",
@@ -49,7 +54,7 @@ class UnconnectedSignup extends Component {
           })
           .then(ResponseBody => {
             let body = JSON.parse(ResponseBody);
-            if (!body.success) {
+            if (body.success === false) {
               alert("login failed..");
               return;
             }
@@ -86,7 +91,7 @@ class UnconnectedSignup extends Component {
           />
           <h3 className="signupReq">Enter your e-mail address</h3>
           <input
-            type="text"
+            type="email"
             onChange={this.handleEmailChange}
             placeholder="E-mail Address"
             className="emailForm"
