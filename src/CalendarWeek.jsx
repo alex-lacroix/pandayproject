@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import dateFns from "date-fns";
+import NavBar from "./NavBar.jsx";
 
 class CalendarWeek extends Component {
   constructor(props) {
@@ -123,6 +124,10 @@ class CalendarWeek extends Component {
     this.setState({
       currentWeek: dateFns.addWeeks(this.state.currentWeek, 1)
     });
+  };
+
+  renderNavBar = () => {
+    return <NavBar />;
   };
 
   prevWeek = () => {

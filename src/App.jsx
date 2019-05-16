@@ -36,9 +36,21 @@ class UnconnectedApp extends Component {
 
   renderCalendar = () => {
     if (!this.props.display) {
-      return <CalendarWeek />;
+      return (
+        <div>
+          <NavBar />
+          <CalendarWeek />
+        </div>
+      );
     }
-    return <CalendarMonth />;
+    return (
+      <div className="">
+        <div className="">
+          <NavBar />
+          <CalendarMonth />
+        </div>
+      </div>
+    );
   };
 
   renderLogin = () => {
@@ -53,8 +65,9 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <div className="App">
-          <Route exact={true} path="/login" render={this.renderLogin} />
+          <Route exact={true} path="/" render={this.renderLogin} />
           <Route exact={true} path="/signup" render={this.renderSignup} />
+          <Route exact={true} path="/mycalendar" render={this.renderCalendar} />
         </div>
       </div>
     );

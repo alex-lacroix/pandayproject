@@ -161,7 +161,7 @@ table {
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1em;
   font-weight: 300;
   line-height: 1.5;
@@ -265,6 +265,7 @@ span:hover::before {
   background: var(--neutral-color);
   border: 1px solid var(--border-color);
   border-radius: 25px 25px 0px 0px;
+  margin-top: 20px;
 }
 
 .calendar .header {
@@ -322,6 +323,7 @@ span:hover::before {
 
 .timecol .time {
   display: flex;
+  font-family: "Montserrat", sans-serif;
   width: 55px;
   flex-direction: column;
   color: #ff5d5d;
