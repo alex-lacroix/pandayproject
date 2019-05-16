@@ -131,7 +131,6 @@ class UnconnectedAddEventDetails extends Component {
               placeholder="0"
               step="5"
               onChange={this.handleEventDurationMinutes}
-              required
             />
             <span>Minutes</span>
           </li>
@@ -160,7 +159,7 @@ class UnconnectedAddEventDetails extends Component {
 }
 
 let mapStateToProps = state => {
-  return { username: "bob", category: state.category };
+  return { username: state.username, category: state.category };
 };
 
 let AddEventDetails = connect(mapStateToProps)(UnconnectedAddEventDetails);

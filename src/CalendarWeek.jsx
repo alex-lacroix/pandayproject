@@ -67,26 +67,44 @@ class CalendarWeek extends Component {
   };
 
   renderCells = () => {
-    const { currentWeek } = this.state;
+    const { currentWeek, currentDay } = this.state;
     const weekStart = dateFns.startOfWeek(currentWeek);
     const weekEnd = dateFns.endOfWeek(weekStart);
     const startDate = dateFns.startOfWeek(weekStart);
     const endDate = dateFns.endOfWeek(weekEnd);
+    const startDay = dateFns.startOfDay(currentDay);
     const dateFormat = "D";
     const rows = [];
+    const hourFormat = "H";
 
     let days = [];
     let day = startDate;
     let formattedDate = "";
 
+    let hours = [];
+    let hour = startDay;
+    let formattedHour = "";
+
+    for (let i = 0; i < 24; i++) {
+      formattedHour = dateFns.format(hour, hourFormat);
+      hours.push(<div className="time">{formattedHour}</div>);
+      hour = dateFns.addHours(hour, 1);
+    }
+
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat); //format the date as D
-        days.push(<div className="col weekcell" />);
+        days.push(
+          <div className="col weekcell">
+            <span>hi</span>
+            <span>{formattedHour}</span>
+            <span>{formattedDate}</span>
+          </div>
+        );
         day = dateFns.addDays(day, 1);
       }
       for (let i = 0; i < 24; i++) {
-        rows.push(<div className="row">{days}</div>);
+        rows.push(<div className="row">hey{days}</div>);
       }
     }
     return <div className="body">{rows}</div>;

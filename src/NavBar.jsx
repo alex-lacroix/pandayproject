@@ -44,8 +44,8 @@ class UnconnectedNavBar extends Component {
     return (
       <div>
         <div className="justify-center">
-          <button onClick={displayToggle} className="see-more-button">
-            {this.state.buttonDisplay ? "SEE WEEK" : "SEE MONTH"}
+          <button onClick={displayToggle} className="toggleButton">
+            {this.state.buttonDisplay ? "See Week" : "See Month"}
           </button>
         </div>
       </div>
@@ -56,6 +56,7 @@ class UnconnectedNavBar extends Component {
     return (
       <nav className="navbar">
         <ul className="ul">
+          <img className="headerLogo" src="logopanda.png" />
           <li className="officialName">Panday.</li>
           <li>{this.renderDisplayButton()}</li>
           <li className="categories">

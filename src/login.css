@@ -139,7 +139,7 @@ table {
 .loginContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 12em;
+  margin-top: 5em;
 }
 
 .loginForm {
@@ -162,6 +162,11 @@ table {
 
 .loginForm::placeholder {
   color: #ff5d5d;
+}
+
+.pandayLogo {
+  height: 100px;
+  margin-top: 15px;
 }
 
 .loginTitle {
