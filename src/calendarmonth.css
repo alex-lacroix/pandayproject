@@ -228,8 +228,10 @@ main {
 .monthCalendar {
   display: block;
   position: relative;
-  margin: auto;
-  width: 100%;
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-bottom: 20px;
+  width: 80em;
   background: var(--neutral-color);
   border-radius: 25px 25px 0px 0px;
   border: 1px solid var(--border-color);
@@ -241,8 +243,8 @@ main {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 115%;
-  padding: 1.5em 0;
+  font-size: 130%;
+  padding: 1em 0;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -266,6 +268,7 @@ main {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 70%;
+  letter-spacing: 2px;
   padding: 0.75em 0;
   border-bottom: 1px solid var(--border-color);
 }
@@ -345,4 +348,5 @@ main {
 
 .number {
   color: #f97f69;
+  font-family: "Montserrat", sans-serif;
 }

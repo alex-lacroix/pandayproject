@@ -11,7 +11,8 @@ class UnconnectedNavBar extends Component {
     super();
     this.state = {
       categoriesHeight: 0,
-      eventDetailsHeight: 0
+      eventDetailsHeight: 0,
+      buttonDisplay: false
     };
   }
   toggleCategoriesDropdown = () => {

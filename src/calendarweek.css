@@ -150,7 +150,7 @@ table {
   --text-color: white;
   --text-color-light: #ccc;
   --border-color: #fda185;
-  --bg-color: #f9f9f9;
+  --bg-color: #fffbee;
   --neutral-color: #fff;
 }
 
@@ -167,13 +167,11 @@ body {
   line-height: 1.5;
   color: var(--text-color);
   background: var(--bg-color);
-  position: relative;
 }
 
 header {
   background-color: #ff5d5d;
   border-bottom: 1px solid var(--border-color);
-  display: block;
   height: 80px;
   width: 100%;
 }
@@ -246,11 +244,13 @@ span:hover::before {
 
 .text {
   color: white;
+  letter-spacing: 2px;
 }
 
 .changedate {
   color: white;
   font-size: 12px;
+  letter-spacing: 2px;
   margin: 15px 15px;
 }
 
@@ -259,13 +259,12 @@ span:hover::before {
 }
 
 .calendar {
-  display: block;
+  display: inline-block;
   position: relative;
   width: 100%;
   background: var(--neutral-color);
   border: 1px solid var(--border-color);
   border-radius: 25px 25px 0px 0px;
-  margin-top: 20px;
 }
 
 .calendar .header {
@@ -312,7 +311,7 @@ span:hover::before {
 } */
 
 .timecol {
-  padding-top: 4.88em;
+  padding-top: 3.7em;
 }
 
 .timecell {
@@ -324,27 +323,28 @@ span:hover::before {
 .timecol .time {
   display: flex;
   font-family: "Montserrat", sans-serif;
-  width: 55px;
+  width: 58px;
   flex-direction: column;
   color: #ff5d5d;
   font-size: 10px;
   padding-right: 10px;
-  padding-top: 25px;
+  padding-top: 30.4px;
 }
 
 .calendarweek {
   display: flex;
-  width: 70em;
-  margin-bottom: 15px;
-  overflow-y: auto;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-top: 20px;
   max-height: 100%;
+  width: 80em;
 }
 
 .calendar .body .weekcell {
   position: relative;
   height: 39px;
   border-right: 1px solid var(--border-color);
-  overflow: hidden;
+
   cursor: pointer;
 }
 

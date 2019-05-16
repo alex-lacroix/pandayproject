@@ -45,6 +45,7 @@ class UnconnectedLogin extends Component {
           type: "set-username",
           username: this.state.username
         });
+        <Link to="/mycalendar" />;
       });
   };
 

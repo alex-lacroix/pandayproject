@@ -44,11 +44,9 @@ class UnconnectedApp extends Component {
       );
     }
     return (
-      <div className="">
-        <div className="">
-          <NavBar />
-          <CalendarMonth />
-        </div>
+      <div>
+        <NavBar />
+        <CalendarMonth />
       </div>
     );
   };

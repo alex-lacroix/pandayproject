@@ -8,11 +8,14 @@ body {
 .navbar {
   justify-content: space-between;
   background-color: #ff5d5d;
+  height: 70px;
 }
 
 .ul {
   display: flex;
   flex-direction: row;
+  float: right;
+  margin-top: 10px;
 }
 
 .searchBox {
@@ -26,12 +29,16 @@ body {
 }
 
 .searchBar {
-  background-image: url("/public/searchicon.png");
   background-position: 10px 10px;
   background-repeat: no-repeat;
   background-size: 20px;
   border-radius: 25px;
-  padding-left: 40px;
+}
+
+.searchBox::placeholder {
+  color: #f97f69;
+  opacity: 0.5;
+  letter-spacing: 2px;
 }
 
 .officialName {
@@ -102,24 +109,37 @@ body {
 }
 
 .logout-button {
-  position: absolute;
+  position: relative;
   right: 10px;
-  background-color: white;
+  background: none;
   border: none;
-  color: #f97f69;
-  padding: 14px 28px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
-  text-decoration: none;
+  letter-spacing: 2px;
   /* display: inline-block; */
   font-size: 15px;
-  margin: 4px;
+  margin-top: 15px;
+  margin-left: 10px;
   cursor: pointer;
   border-radius: 25px;
 }
 
-.logout-button:hover {
-  background-color: #ffeef0;
-  opacity: 50%;
+.logout-button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffe88a;
+  transform-origin: center;
+  transform: translate(-50%, 0) scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.logout-button:hover::before {
+  transform: translate(-50%, 0) scaleX(1);
 }
 
 .add-to-calendar {
