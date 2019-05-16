@@ -30,6 +30,7 @@ class UnconnectedApp extends Component {
             type: "set-username",
             username: body.username
           });
+          this.props.history.push("/mycalendar");
         }
       });
   };
@@ -75,5 +76,5 @@ let mapStateToProps = state => {
   return { display: state.display };
 };
 
-let App = connect(mapStateToProps)(UnconnectedApp);
-export default withRouter(App);
+let App = connect(mapStateToProps)(withRouter(UnconnectedApp));
+export default App;

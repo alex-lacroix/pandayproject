@@ -160,7 +160,7 @@ class UnconnectedAddEventDetails extends Component {
 }
 
 let mapStateToProps = state => {
-  return { username: "bob", category: state.category };
+  return { username: state.username, category: state.category };
 };
 
 let AddEventDetails = connect(mapStateToProps)(UnconnectedAddEventDetails);

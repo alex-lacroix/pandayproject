@@ -9,38 +9,41 @@ class UnconnectedPickCategory extends Component {
 
   handleApptCategory = () => {
     this.props.toggleCategoriesDropdown();
-    this.setState({ category: "appointment" });
+    // this.setState({ category: "appointment" });
     this.props.dispatch({
       type: "set-category",
-      category: this.state.category
+      category: "appointment"
     });
     this.props.toggleDetailsDropdown();
   };
   handleSchoolCategory = () => {
     this.props.toggleCategoriesDropdown();
-    this.setState({ category: "school" });
+    // this.setState({ category: "school" });
     this.props.dispatch({
       type: "set-category",
-      category: this.state.category
+      category: "school"
     });
+
     this.props.toggleDetailsDropdown();
   };
   handleSocialCategory = () => {
     this.props.toggleCategoriesDropdown();
-    this.setState({ category: "social" });
+    // this.setState({ category: "social" });
     this.props.dispatch({
       type: "set-category",
-      category: this.state.category
+      category: "social"
     });
+
     this.props.toggleDetailsDropdown();
   };
   handleWorkCategory = () => {
     this.props.toggleCategoriesDropdown();
-    this.setState({ category: "work" });
+    // this.setState({ category: "work" });
     this.props.dispatch({
       type: "set-category",
-      category: this.state.category
+      category: "work"
     });
+
     this.props.toggleDetailsDropdown();
   };
   render = () => {

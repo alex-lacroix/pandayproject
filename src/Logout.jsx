@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class UnconnectedLogout extends Component {
   handleLogout = event => {
@@ -13,7 +13,7 @@ class UnconnectedLogout extends Component {
         let body = JSON.parse(ResponseBody);
         if (body.success) {
           this.props.dispatch({ type: "logout" });
-          //   this.props.history.push("/");
+          this.props.history.push("/");
         }
       });
   };
@@ -25,6 +25,6 @@ class UnconnectedLogout extends Component {
     );
   };
 }
-let Logout = connect()(UnconnectedLogout);
+let Logout = connect()(withRouter(UnconnectedLogout));
 // export default withRouter(Logout);
 export default Logout;

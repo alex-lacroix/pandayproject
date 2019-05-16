@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class UnconnectedSignup extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class UnconnectedSignup extends Component {
               type: "set-username",
               username: this.state.username
             });
+            this.props.history.push("/mycalendar");
           });
       });
   };
@@ -104,6 +106,6 @@ class UnconnectedSignup extends Component {
   };
 }
 
-let Signup = connect()(UnconnectedSignup);
+let Signup = connect()(withRouter(UnconnectedSignup));
 
 export default Signup;
