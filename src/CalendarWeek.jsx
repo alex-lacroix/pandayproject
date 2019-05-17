@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import dateFns from "date-fns";
 import NavBar from "./NavBar.jsx";
 
@@ -13,7 +14,7 @@ class UnconnectedCalendarWeek extends Component {
   }
 
   componentDidMount = () => {
-    event.preventDefault();
+    // event.preventDefault();
     let data = new FormData();
     data.append("username", this.props.username);
     fetch("http://localhost:4000/getUserEvents", {
@@ -95,9 +96,9 @@ class UnconnectedCalendarWeek extends Component {
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
-        usersEvents.forEach(event => {
-          console.log(event);
-        });
+        // usersEvents.forEach(event => {
+        //   console.log(event);
+        // });
         formattedHour = dateFns.format(time, hourFormat);
         hours.push(
           <div className="timecell">
