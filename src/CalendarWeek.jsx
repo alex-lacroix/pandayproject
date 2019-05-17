@@ -82,8 +82,8 @@ class UnconnectedCalendarWeek extends Component {
     const weekEnd = dateFns.endOfWeek(weekStart);
     const startDate = dateFns.startOfWeek(this.state.currentWeek);
     const endDate = dateFns.endOfWeek(weekEnd);
-    const hourFormat = "H";
-    const dayFormat = "D";
+    const hourFormat = "HH:mm";
+    const dayFormat = "YYYY-MM-D";
     const hours = [];
     const days = [];
     let formattedHour = "";
@@ -91,14 +91,30 @@ class UnconnectedCalendarWeek extends Component {
     let time = startDay;
     let day = startDate;
 
+    let timecell = "timecell";
+    if (eventCategory === "social") {
+      return (timecell = timecell + " red");
+    }
+    if (eventCategory === "school") {
+      return (timecell = timecell + " blue");
+    }
+    if (eventCategory === "appointment") {
+      return (timecell = timecell + " green");
+    }
+    if (eventCategory === "social") {
+      return (timecell = timecell + " yellow");
+    }
+
     for (let i = 0; i < 7; i++) {
       formattedDate = dateFns.format(day, dayFormat);
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
-        // usersEvents.forEach(event => {
-        //   console.log(event);
-        // });
+        usersEvents.forEach(event => {
+          if (eventDate === formattedDate && eventTime === formattedHour) {
+          }
+          console.log(event);
+        });
         formattedHour = dateFns.format(time, hourFormat);
         hours.push(
           <div className="timecell">
