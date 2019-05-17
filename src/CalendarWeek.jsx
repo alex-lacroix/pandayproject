@@ -52,44 +52,46 @@ class CalendarWeek extends Component {
     return <div className="days row">{days}</div>;
   };
 
-  renderWeek = () => {
-    const dateFormat = "dddd";
+  renderCells = () => {
+    const { currentWeek, currentDay } = this.state;
+    const startDay = dateFns.startOfDay(currentDay);
+    const weekStart = dateFns.startOfWeek(currentWeek);
+    const weekEnd = dateFns.endOfWeek(weekStart);
+    const startDate = dateFns.startOfWeek(this.state.currentWeek);
+    const endDate = dateFns.endOfWeek(weekEnd);
+    const hourFormat = "H";
+    const dayFormat = "D";
+    const hours = [];
     const days = [];
+    let formattedHour = "";
+    let formattedDate = "";
+    let time = startDay;
+    let day = startDate;
 
-    let startDate = dateFns.startOfWeek(this.state.currentWeek);
     for (let i = 0; i < 7; i++) {
+      formattedDate = dateFns.format(day, dayFormat);
+      day = dateFns.addDays(day, 1);
+
+      for (let j = 0; j < 24; j++) {
+        formattedHour = dateFns.format(time, hourFormat);
+        hours.push(
+          <div className="timecell">
+            {formattedDate}
+            {formattedHour}
+          </div>
+        );
+        time = dateFns.addHours(time, 1);
+      }
+
       days.push(
-        <div className="col col-center" key={i}>
-          {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
+        <div className="daycol col-center">
+          <div className="h6">
+            {dateFns.format(dateFns.addDays(startDate, i), dayFormat)}
+          </div>
         </div>
       );
     }
-  };
-
-  renderCells = () => {
-    const { currentWeek } = this.state;
-    const weekStart = dateFns.startOfWeek(currentWeek);
-    const weekEnd = dateFns.endOfWeek(weekStart);
-    const startDate = dateFns.startOfWeek(weekStart);
-    const endDate = dateFns.endOfWeek(weekEnd);
-    const dateFormat = "D";
-    const rows = [];
-
-    let days = [];
-    let day = startDate;
-    let formattedDate = "";
-
-    while (day <= endDate) {
-      for (let i = 0; i < 7; i++) {
-        formattedDate = dateFns.format(day, dateFormat); //format the date as D
-        days.push(<div className="col weekcell" />);
-        day = dateFns.addDays(day, 1);
-      }
-      for (let i = 0; i < 24; i++) {
-        rows.push(<div className="row">{days}</div>);
-      }
-    }
-    return <div className="body">{rows}</div>;
+    return <div className="column">{hours}</div>;
   };
 
   renderTime = () => {

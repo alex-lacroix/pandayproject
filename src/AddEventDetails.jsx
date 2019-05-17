@@ -131,7 +131,6 @@ class UnconnectedAddEventDetails extends Component {
               placeholder="0"
               step="5"
               onChange={this.handleEventDurationMinutes}
-              required
             />
             <span>Minutes</span>
           </li>

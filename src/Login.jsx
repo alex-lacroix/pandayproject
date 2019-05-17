@@ -57,6 +57,7 @@ class UnconnectedLogin extends Component {
     return (
       <div className="loginBody">
         <h1 className="name">Panday.</h1>
+        <img className="pandayLogo" src="logopanda.png" />
         <form className="loginContainer" onSubmit={this.handleSubmit}>
           <h3 className="loginTitle">MEMBER LOGIN</h3>
           <input
