@@ -135,9 +135,6 @@ class UnconnectedCalendarWeek extends Component {
           ) {
             changeCellColor();
           }
-          if (event.eventEnd === formattedHour) {
-            resetCellColor();
-          }
         });
         hours.push(
           <div className={timecell}>
