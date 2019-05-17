@@ -86,12 +86,18 @@ class UnconnectedCalendarWeek extends Component {
     const dayFormat = "YYYY-MM-D";
     const hours = [];
     const days = [];
+    const endFormat = "m";
 
     let formattedDate = "";
     let time = startDay;
     let day = startDate;
 
     let timecell = "timecell";
+
+    let resetCellColor = () => {
+      timecell = timecell + " reset";
+      return;
+    };
 
     let changeCellColor = () => {
       this.props.usersEvents.map(event => {
@@ -129,7 +135,9 @@ class UnconnectedCalendarWeek extends Component {
           ) {
             changeCellColor();
           }
-          // console.log(event);
+          if (event.eventEnd === formattedHour) {
+            resetCellColor();
+          }
         });
         hours.push(
           <div className={timecell}>

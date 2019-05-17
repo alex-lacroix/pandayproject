@@ -50,10 +50,7 @@ class UnconnectedAddEventDetails extends Component {
     data.append("username", this.props.username);
     data.append("eventDate", this.state.eventDate);
     data.append("eventTime", this.state.eventTime);
-    data.append(
-      "eventDuration",
-      this.state.eventHour + "." + this.state.eventMinute
-    );
+    data.append("eventEnd", this.state.eventHour * 60 + this.state.eventMinute);
     data.append("eventCategory", this.props.category);
     data.append("eventTitle", this.state.eventTitle);
     data.append("eventNotes", this.state.eventNotes);

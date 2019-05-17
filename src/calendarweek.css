@@ -369,6 +369,10 @@ span:hover::before {
   background-color: yellow;
 }
 
+.reset {
+  background-color: white;
+}
+
 .timecol .time {
   display: flex;
   font-family: "Montserrat", sans-serif;
