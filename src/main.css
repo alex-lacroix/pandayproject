@@ -14,8 +14,9 @@ body {
 .ul {
   display: flex;
   flex-direction: row;
-  float: right;
+  float: left;
   margin-top: 10px;
+  margin-left: 20px;
 }
 
 .searchBox {
@@ -211,7 +212,7 @@ body {
   /* display: inline-block; */
   font-size: 15px;
   margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 50px;
   cursor: pointer;
   border-radius: 25px;
 }

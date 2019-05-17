@@ -95,25 +95,39 @@ class UnconnectedCalendarWeek extends Component {
     let timecell = "timecell";
 
     let resetCellColor = () => {
-      timecell = timecell + " reset";
+      timecell = "timecell";
       return;
     };
 
-    let changeCellColor = () => {
+    let changeCellColor = (date, time) => {
+      timecell = "timecell";
       this.props.usersEvents.map(event => {
-        if (event.eventCategory === "social") {
+        if (
+          event.eventCategory === "work" &&
+          event.eventDate === date &&
+          event.eventTime === time
+        ) {
           timecell = timecell + " red";
           return;
-        }
-        if (event.eventCategory === "school") {
+        } else if (
+          event.eventCategory === "school" &&
+          event.eventDate === date &&
+          event.eventTime === time
+        ) {
           timecell = timecell + " blue";
           return;
-        }
-        if (event.eventCategory === "appointment") {
+        } else if (
+          event.eventCategory === "appointment" &&
+          event.eventDate === date &&
+          event.eventTime === time
+        ) {
           timecell = timecell + " green";
           return;
-        }
-        if (event.eventCategory === "social") {
+        } else if (
+          event.eventCategory === "social" &&
+          event.eventDate === date &&
+          event.eventTime === time
+        ) {
           timecell = timecell + " yellow";
           return;
         }
@@ -132,20 +146,24 @@ class UnconnectedCalendarWeek extends Component {
             event.eventDate === formattedDate &&
             event.eventTime === formattedHour
           ) {
-            changeCellColor();
-            // resetCellColor();
-          }
-          if (
+            console.log("does it change the color?");
+            changeCellColor(event.eventDate, event.eventTime);
+            return;
+          } else if (
             event.eventDate === formattedDate &&
             event.eventEndTime === formattedHour
           ) {
+            console.log("its resetting the color");
             resetCellColor();
+            return;
           }
         });
         hours.push(
           <div className={timecell}>
-            {formattedDate}
-            {formattedHour}
+            <div className="timetext">
+              {formattedDate}
+              {formattedHour}
+            </div>
           </div>
         );
         time = dateFns.addHours(time, 1);
@@ -182,12 +200,6 @@ class UnconnectedCalendarWeek extends Component {
       timeslot = []; //prevents the hours from repeating
     }
     return <div className="timecol">{timeCol}</div>;
-  };
-
-  onDateClick = day => {
-    this.setState({
-      selectedDate: day
-    });
   };
 
   nextWeek = () => {
