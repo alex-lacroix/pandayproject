@@ -353,6 +353,22 @@ span:hover::before {
   height: 2em;
 }
 
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
 .timecol .time {
   display: flex;
   font-family: "Montserrat", sans-serif;

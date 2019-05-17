@@ -86,24 +86,33 @@ class UnconnectedCalendarWeek extends Component {
     const dayFormat = "YYYY-MM-D";
     const hours = [];
     const days = [];
-    let formattedHour = "";
+
     let formattedDate = "";
     let time = startDay;
     let day = startDate;
 
     let timecell = "timecell";
-    if (eventCategory === "social") {
-      return (timecell = timecell + " red");
-    }
-    if (eventCategory === "school") {
-      return (timecell = timecell + " blue");
-    }
-    if (eventCategory === "appointment") {
-      return (timecell = timecell + " green");
-    }
-    if (eventCategory === "social") {
-      return (timecell = timecell + " yellow");
-    }
+
+    let changeCellColor = () => {
+      this.props.usersEvents.map(event => {
+        if (event.eventCategory === "social") {
+          timecell = timecell + " red";
+          return;
+        }
+        if (event.eventCategory === "school") {
+          timecell = timecell + " blue";
+          return;
+        }
+        if (event.eventCategory === "appointment") {
+          timecell = timecell + " green";
+          return;
+        }
+        if (event.eventCategory === "social") {
+          timecell = timecell + " yellow";
+          return;
+        }
+      });
+    };
 
     for (let i = 0; i < 7; i++) {
       //renders 7 days of the week
@@ -111,14 +120,19 @@ class UnconnectedCalendarWeek extends Component {
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
-        usersEvents.forEach(event => {
-          if (eventDate === formattedDate && eventTime === formattedHour) {
+        let formattedHour = dateFns.format(time, hourFormat);
+        this.props.usersEvents.forEach(event => {
+          console.log("*****", event.eventTime);
+          if (
+            event.eventDate === formattedDate &&
+            event.eventTime === formattedHour
+          ) {
+            changeCellColor();
           }
-          console.log(event);
+          // console.log(event);
         });
-        formattedHour = dateFns.format(time, hourFormat);
         hours.push(
-          <div className="timecell">
+          <div className={timecell}>
             {formattedDate}
             {formattedHour}
           </div>
