@@ -82,8 +82,8 @@ class UnconnectedCalendarWeek extends Component {
     const weekEnd = dateFns.endOfWeek(weekStart);
     const startDate = dateFns.startOfWeek(this.state.currentWeek);
     const endDate = dateFns.endOfWeek(weekEnd);
-    const hourFormat = "H";
-    const dayFormat = "D";
+    const hourFormat = "HH:mm";
+    const dayFormat = "YYYY-MM-D";
     const hours = [];
     const days = [];
     let formattedHour = "";
@@ -92,14 +92,16 @@ class UnconnectedCalendarWeek extends Component {
     let day = startDate;
 
     for (let i = 0; i < 7; i++) {
-      formattedDate = dateFns.format(day, dayFormat);
+      //renders 7 days of the week
+      formattedDate = dateFns.format(day, dayFormat); //renders date
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
+        //renders the 24 hours
         // usersEvents.forEach(event => {
         //   console.log(event);
         // });
-        formattedHour = dateFns.format(time, hourFormat);
+        formattedHour = dateFns.format(time, hourFormat); //renders time
         hours.push(
           <div className="timecell">
             {formattedDate}
