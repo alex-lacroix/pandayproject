@@ -63,7 +63,6 @@ body {
   display: flex;
   height: 50px;
   justify-content: center;
-  padding-bottom: 4px;
   width: 50px;
   font-size: 32px;
 }
@@ -117,7 +116,6 @@ body {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   letter-spacing: 2px;
-  /* display: inline-block; */
   font-size: 15px;
   margin-top: 15px;
   margin-left: 10px;
@@ -183,7 +181,22 @@ body {
   margin: 5px;
 }
 
-.toggleButton {
+.search-results {
+  font-family: "Montserrat", sans-serif;
+  background: white;
+  color: #777;
+  border: none;
+  border-radius: 25px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 3;
+  transition: all linear 50ms;
+  padding: 20px;
+  width: 310px;
+}
+
+.results-details {
+  padding-bottom: 5px;
   position: relative;
   right: 10px;
   background: none;
