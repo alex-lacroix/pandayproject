@@ -91,17 +91,32 @@ class UnconnectedCalendarWeek extends Component {
     let time = startDay;
     let day = startDate;
 
+    let timecell = "timecell";
+    if (eventCategory === "social") {
+      return (timecell = timecell + " red");
+    }
+    if (eventCategory === "school") {
+      return (timecell = timecell + " blue");
+    }
+    if (eventCategory === "appointment") {
+      return (timecell = timecell + " green");
+    }
+    if (eventCategory === "social") {
+      return (timecell = timecell + " yellow");
+    }
+
     for (let i = 0; i < 7; i++) {
       //renders 7 days of the week
       formattedDate = dateFns.format(day, dayFormat); //renders date
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
-        //renders the 24 hours
-        // usersEvents.forEach(event => {
-        //   console.log(event);
-        // });
-        formattedHour = dateFns.format(time, hourFormat); //renders time
+        usersEvents.forEach(event => {
+          if (eventDate === formattedDate && eventTime === formattedHour) {
+          }
+          console.log(event);
+        });
+        formattedHour = dateFns.format(time, hourFormat);
         hours.push(
           <div className="timecell">
             {formattedDate}
