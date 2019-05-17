@@ -197,6 +197,9 @@ body {
 
 .results-details {
   padding-bottom: 5px;
+}
+
+.toggleButton {
   position: relative;
   right: 10px;
   background: none;
