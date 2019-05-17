@@ -7,8 +7,7 @@ class UnconnectedAddEventDetails extends Component {
     this.state = {
       eventDate: "",
       eventTime: "",
-      eventHour: "",
-      eventMinute: "",
+      eventEndTime: "",
       eventTitle: "",
       eventNotes: ""
     };
@@ -28,14 +27,9 @@ class UnconnectedAddEventDetails extends Component {
     this.setState({ eventTime: event.target.value });
   };
 
-  handleEventDurationHour = event => {
-    console.log("**hour chosen", event.target.value);
-    this.setState({ eventHour: event.target.value });
-  };
-
-  handleEventDurationMinutes = event => {
-    console.log("**minutes chosen", event.target.value);
-    this.setState({ eventMinute: event.target.value });
+  handleEventEndTime = event => {
+    console.log("**end time chosen: ", event.target.value);
+    this.setState({ eventEndTime: event.target.value });
   };
 
   handleEventNotes = event => {
@@ -50,10 +44,7 @@ class UnconnectedAddEventDetails extends Component {
     data.append("username", this.props.username);
     data.append("eventDate", this.state.eventDate);
     data.append("eventTime", this.state.eventTime);
-    data.append(
-      "eventDuration",
-      this.state.eventHour + "." + this.state.eventMinute
-    );
+    data.append("eventEndTime", this.state.eventEndTime);
     data.append("eventCategory", this.props.category);
     data.append("eventTitle", this.state.eventTitle);
     data.append("eventNotes", this.state.eventNotes);
@@ -112,27 +103,11 @@ class UnconnectedAddEventDetails extends Component {
           </li>
           <li>
             <input
-              className="event-hours"
-              type="number"
-              min="0"
-              max="24"
-              placeholder="0"
-              onChange={this.handleEventDurationHour}
+              className="event-time"
+              type="time"
+              onChange={this.handleEventEndTime}
               required
             />
-            <span>Hours</span>
-          </li>
-          <li>
-            <input
-              className="event-minutes"
-              type="number"
-              min="0"
-              max="59"
-              placeholder="0"
-              step="5"
-              onChange={this.handleEventDurationMinutes}
-            />
-            <span>Minutes</span>
           </li>
           <li>
             <span>Notes: </span>
