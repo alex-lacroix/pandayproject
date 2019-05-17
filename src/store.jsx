@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import { loadState, saveState } from "./localStorage.js";
 
 let reducer = (state, action) => {
   if (action.type === "signup-success") {
@@ -28,16 +29,15 @@ let reducer = (state, action) => {
   return state;
 };
 
+const persistedState = loadState();
 const store = createStore(
   reducer,
-  {
-    loggedIn: false,
-    searchResults: [],
-    username: "",
-    category: "",
-    display: false,
-    usersEvents: []
-  },
+  persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
+
 export default store;

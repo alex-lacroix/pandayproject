@@ -17,22 +17,26 @@ class UnconnectedCalendarWeek extends Component {
     // event.preventDefault();
     let data = new FormData();
     data.append("username", this.props.username);
-    fetch("http://localhost:4000/getUserEvents", {
-      method: "POST",
-      body: data,
-      credentials: "include"
-    })
-      .then(response => {
-        return response.text();
+    let update = () => {
+      fetch("http://localhost:4000/getUserEvents", {
+        method: "POST",
+        body: data,
+        credentials: "include"
       })
-      .then(ResponseBody => {
-        let body = JSON.parse(ResponseBody);
-        this.props.dispatch({
-          type: "user-events",
-          usersEvents: body.usersEvents
+        .then(response => {
+          return response.text();
+        })
+        .then(ResponseBody => {
+          let body = JSON.parse(ResponseBody);
+          this.props.dispatch({
+            type: "user-events",
+            usersEvents: body.usersEvents
+          });
+          console.log(body);
         });
-        console.log(body);
-      });
+    };
+
+    setInterval(update, 1000);
   };
 
   renderHeader = () => {
