@@ -55,9 +55,9 @@ class UnconnectedNavBar extends Component {
   render = () => {
     return (
       <nav className="navbar">
+        <img className="headerLogo" src="logopanda.png" />
+        <div className="officialName">Panday.</div>
         <ul className="ul">
-          <img className="headerLogo" src="logopanda.png" />
-          <li className="officialName">Panday.</li>
           <li>{this.renderDisplayButton()}</li>
           <li className="categories">
             <p

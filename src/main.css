@@ -6,6 +6,8 @@ body {
 }
 
 .navbar {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   background-color: #ff5d5d;
   height: 70px;
@@ -236,4 +238,6 @@ body {
 
 .headerLogo {
   height: 50px;
+  margin-top: 10px;
+  margin-left: 15px;
 }
