@@ -95,6 +95,9 @@ class UnconnectedCalendarWeek extends Component {
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
+        usersEvents.forEach(event => {
+          console.log(event);
+        });
         formattedHour = dateFns.format(time, hourFormat);
         hours.push(
           <div className="timecell">
@@ -175,7 +178,7 @@ class UnconnectedCalendarWeek extends Component {
 }
 
 let mapStateToProps = state => {
-  return { username: state.username };
+  return { username: state.username, usersEvents: state.usersEvents };
 };
 
 let CalendarWeek = connect(mapStateToProps)(UnconnectedCalendarWeek);
