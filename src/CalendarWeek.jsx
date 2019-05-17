@@ -121,19 +121,25 @@ class UnconnectedCalendarWeek extends Component {
     };
 
     for (let i = 0; i < 7; i++) {
-      //renders 7 days of the week
-      formattedDate = dateFns.format(day, dayFormat); //renders date
+      formattedDate = dateFns.format(day, dayFormat);
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
         let formattedHour = dateFns.format(time, hourFormat);
+
         this.props.usersEvents.forEach(event => {
-          console.log("*****", event.eventTime);
           if (
             event.eventDate === formattedDate &&
             event.eventTime === formattedHour
           ) {
             changeCellColor();
+            // resetCellColor();
+          }
+          if (
+            event.eventDate === formattedDate &&
+            event.eventEndTime === formattedHour
+          ) {
+            resetCellColor();
           }
         });
         hours.push(
