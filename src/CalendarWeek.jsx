@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import dateFns from "date-fns";
 import NavBar from "./NavBar.jsx";
 
-class CalendarWeek extends Component {
+class UnconnectedCalendarWeek extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +11,28 @@ class CalendarWeek extends Component {
       currentDay: new Date()
     };
   }
+
+  componentDidMount = () => {
+    event.preventDefault();
+    let data = new FormData();
+    data.append("username", this.props.username);
+    fetch("http://localhost:4000/getUserEvents", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    })
+      .then(response => {
+        return response.text();
+      })
+      .then(ResponseBody => {
+        let body = JSON.parse(ResponseBody);
+        this.props.dispatch({
+          type: "user-events",
+          usersEvents: body.usersEvents
+        });
+        console.log(body);
+      });
+  };
 
   renderHeader = () => {
     const dateFormat = "MMMM D YYYY";
@@ -151,5 +173,11 @@ class CalendarWeek extends Component {
     );
   };
 }
+
+let mapStateToProps = state => {
+  return { username: state.username };
+};
+
+let CalendarWeek = connect(mapStateToProps)(UnconnectedCalendarWeek);
 
 export default CalendarWeek;

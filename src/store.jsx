@@ -22,6 +22,9 @@ let reducer = (state, action) => {
   if (action.type === "toggle-calendar") {
     return { ...state, display: action.payload };
   }
+  if (action.type === "user-events") {
+    return { ...state, usersEvents: action.usersEvents };
+  }
   return state;
 };
 
@@ -32,7 +35,8 @@ const store = createStore(
     searchResults: [],
     username: "",
     category: "",
-    display: false
+    display: false,
+    usersEvents: []
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
