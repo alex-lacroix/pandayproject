@@ -56,30 +56,46 @@ class UnconnectedPickCategory extends Component {
     };
     return (
       <div className="categories-dropdown" style={customCSS}>
-        <img
-          className="category-pics"
-          src="/appointment.png"
-          onClick={this.handleApptCategory}
-          alt="appointment"
-        />
-        <img
-          className="category-pics"
-          src="/school.jpg"
-          onClick={this.handleSchoolCategory}
-          alt="school"
-        />
-        <img
-          className="category-pics"
-          src="/social.jpg"
-          onClick={this.handleSocialCategory}
-          alt="social"
-        />
-        <img
-          className="category-pics"
-          src="/work.png"
-          onClick={this.handleWorkCategory}
-          alt="work"
-        />
+        <div className="name-toprow">
+          <p className="catname">Work</p>
+          <p className="catname">School</p>
+        </div>
+        <div className="cat-toprow">
+          <button
+            className="category-work"
+            onClick={this.handleWorkCategory}
+            alt="work"
+          >
+            <img className="caticon" src="/workicon.png" />
+          </button>
+          <button
+            className="category-school"
+            onClick={this.handleSchoolCategory}
+            alt="school"
+          >
+            <img className="caticon" src="/schoolicon.png" />
+          </button>
+        </div>
+        <div className="name-toprow">
+          <p className="catname">Appointment</p>
+          <p className="catname">Social</p>
+        </div>
+        <div className="cat-toprow">
+          <button
+            className="category-appointment"
+            onClick={this.handleApptCategory}
+            alt="appointment"
+          >
+            <img className="caticon" src="/appointmenticon.png" />
+          </button>
+          <button
+            className="category-social"
+            onClick={this.handleSocialCategory}
+            alt="social"
+          >
+            <img className="caticon" src="/socialicon.png" />
+          </button>
+        </div>
       </div>
     );
   };

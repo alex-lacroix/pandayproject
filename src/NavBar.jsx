@@ -22,7 +22,7 @@ class UnconnectedNavBar extends Component {
       this.state.categoriesHeight === 250 ||
       this.state.eventDetailsHeight === "fit-content";
     this.setState({
-      categoriesHeight: modalIsOpen ? 0 : 250,
+      categoriesHeight: modalIsOpen ? 0 : 325,
       eventDetailsHeight: 0
     });
   };
@@ -64,10 +64,9 @@ class UnconnectedNavBar extends Component {
   render = () => {
     return (
       <nav className="navbar">
+        <img className="headerLogo" src="logopanda.png" />
+        <div className="officialName">Panday.</div>
         <ul className="ul">
-          <img className="headerLogo" src="logopanda.png" />
-
-          <li className="officialName">Panday.</li>
           <li>{this.renderDisplayButton()}</li>
           <li className="categories">
             <p
