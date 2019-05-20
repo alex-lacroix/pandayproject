@@ -36,7 +36,7 @@ class UnconnectedCalendarWeek extends Component {
         });
     };
 
-    setInterval(update, 1000);
+    setInterval(update, 2000);
   };
 
   renderHeader = () => {
@@ -150,14 +150,14 @@ class UnconnectedCalendarWeek extends Component {
             event.eventDate === formattedDate &&
             event.eventTime === formattedHour
           ) {
-            console.log("does it change the color?");
+            // console.log("does it change the color?");
             changeCellColor(event.eventDate, event.eventTime);
             return;
           } else if (
             event.eventDate === formattedDate &&
             event.eventEndTime === formattedHour
           ) {
-            console.log("its resetting the color");
+            // console.log("its resetting the color");
             resetCellColor();
             return;
           }

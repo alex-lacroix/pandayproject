@@ -4,7 +4,8 @@ const defaultState = {
   username: "",
   category: "",
   display: false,
-  usersEvents: []
+  usersEvents: [],
+  searchResult: ""
 };
 
 export const loadState = () => {

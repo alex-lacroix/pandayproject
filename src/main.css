@@ -274,6 +274,10 @@ body {
   padding-bottom: 5px;
 }
 
+.results-details:hover {
+  cursor: pointer;
+}
+
 .toggleButton {
   position: relative;
   right: 10px;
@@ -385,4 +389,12 @@ body {
 .settings-gear {
   height: 50px;
   cursor: pointer;
+}
+
+.event-details {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  background-color: red;
+  z-index: 3;
 }

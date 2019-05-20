@@ -26,6 +26,9 @@ let reducer = (state, action) => {
   if (action.type === "user-events") {
     return { ...state, usersEvents: action.usersEvents };
   }
+  if (action.type === "store-result") {
+    return { ...state, searchResult: action.searchResult };
+  }
   return state;
 };
 
