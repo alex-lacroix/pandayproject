@@ -2,6 +2,7 @@ const defaultState = {
   loggedIn: false,
   searchResults: [],
   username: "",
+  email: "",
   category: "",
   display: false,
   usersEvents: [],

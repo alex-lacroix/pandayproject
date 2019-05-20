@@ -9,10 +9,13 @@ let reducer = (state, action) => {
     return { ...state, loggedIn: true };
   }
   if (action.type === "logout") {
-    return { ...state, loggedIn: false, username: "" };
+    return { ...state, loggedIn: false, username: "", email: "" };
   }
   if (action.type === "set-username") {
     return { ...state, username: action.username };
+  }
+  if (action.type === "set-email") {
+    return { ...state, email: action.email };
   }
   if (action.type === "set-category") {
     return { ...state, category: action.category };

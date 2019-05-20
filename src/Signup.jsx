@@ -64,6 +64,10 @@ class UnconnectedSignup extends Component {
               type: "set-username",
               username: this.state.username
             });
+            this.props.dispatch({
+              type: "set-email",
+              email: this.state.email
+            });
             this.props.history.push("/mycalendar");
           });
       });
