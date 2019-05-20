@@ -66,6 +66,7 @@ class UnconnectedChangeEmail extends Component {
     return (
       <ul className="display-email-change" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
+          <h3>Update your email</h3>
           <p className="small-header">Please confirm your identity</p>
           <li>
             <p>Username: </p>

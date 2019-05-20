@@ -6,7 +6,6 @@ import AddEventDetails from "./AddEventDetails.jsx";
 import Settings from "./Settings.jsx";
 import Logout from "./Logout.jsx";
 import "./main.css";
-import Themes from "./Themes.jsx";
 
 class UnconnectedNavBar extends Component {
   constructor() {
@@ -14,6 +13,7 @@ class UnconnectedNavBar extends Component {
     this.state = {
       categoriesHeight: 0,
       eventDetailsHeight: 0,
+      settingsBackground: "transparent",
       settingsVisibility: "hidden",
       buttonDisplay: false
     };
@@ -36,7 +36,9 @@ class UnconnectedNavBar extends Component {
   toggleSettingsVisibility = () => {
     this.setState({
       settingsVisibility:
-        this.state.settingsVisibility === "hidden" ? "visible" : "hidden"
+        this.state.settingsVisibility === "hidden" ? "visible" : "hidden",
+      settingsBackground:
+        this.state.settingsBackground === "transparent" ? "#777" : "transparent"
     });
   };
 
@@ -98,7 +100,11 @@ class UnconnectedNavBar extends Component {
               className="settings-gear"
               onClick={this.toggleSettingsVisibility}
             />
-            <Settings settingsVisibility={this.state.settingsVisibility} />
+            <Settings
+              settingsVisibility={this.state.settingsVisibility}
+              settingsBackground={this.state.settingsBackground}
+              toggleSettingsVisibility={this.toggleSettingsVisibility}
+            />
           </li>
           <li>
             <Logout />

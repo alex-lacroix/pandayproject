@@ -49,52 +49,52 @@ class UnconnectedPickCategory extends Component {
   render = () => {
     let customCSS = {
       height: `${this.props.categoriesHeight}px`,
-      border: `${
-        this.props.categoriesHeight === 0 ? "none" : "1px solid #fbbe84"
-      }`,
+      border: `${this.props.categoriesHeight === 0 ? "none" : "none"}`,
       padding: `${this.props.categoriesHeight === 0 ? 0 : 10}`
     };
     return (
       <div className="categories-dropdown" style={customCSS}>
-        <div className="name-toprow">
-          <p className="catname">Work</p>
-          <p className="catname">School</p>
-        </div>
-        <div className="cat-toprow">
-          <button
-            className="category-work"
-            onClick={this.handleWorkCategory}
-            alt="work"
-          >
-            <img className="caticon" src="/workicon.png" />
-          </button>
-          <button
-            className="category-school"
-            onClick={this.handleSchoolCategory}
-            alt="school"
-          >
-            <img className="caticon" src="/schoolicon.png" />
-          </button>
-        </div>
-        <div className="name-toprow">
-          <p className="catname">Appointment</p>
-          <p className="catname">Social</p>
-        </div>
-        <div className="cat-toprow">
-          <button
-            className="category-appointment"
-            onClick={this.handleApptCategory}
-            alt="appointment"
-          >
-            <img className="caticon" src="/appointmenticon.png" />
-          </button>
-          <button
-            className="category-social"
-            onClick={this.handleSocialCategory}
-            alt="social"
-          >
-            <img className="caticon" src="/socialicon.png" />
-          </button>
+        <div className="cat-container">
+          <div className="name-toprow">
+            <p className="catwork">WORK</p>
+            <p className="catschool">SCHOOL</p>
+          </div>
+          <div className="cat-toprow">
+            <button
+              className="category-work"
+              onClick={this.handleWorkCategory}
+              alt="work"
+            >
+              <img className="caticon" src="/workicon.png" />
+            </button>
+            <button
+              className="category-school"
+              onClick={this.handleSchoolCategory}
+              alt="school"
+            >
+              <img className="caticon" src="/schoolicon.png" />
+            </button>
+          </div>
+          <div className="name-toprow">
+            <p className="catapp">APPOINTMENT</p>
+            <p className="catsocial">SOCIAL</p>
+          </div>
+          <div className="cat-toprow">
+            <button
+              className="category-appointment"
+              onClick={this.handleApptCategory}
+              alt="appointment"
+            >
+              <img className="caticon" src="/appointmenticon.png" />
+            </button>
+            <button
+              className="category-social"
+              onClick={this.handleSocialCategory}
+              alt="social"
+            >
+              <img className="caticon" src="/socialicon.png" />
+            </button>
+          </div>
         </div>
       </div>
     );

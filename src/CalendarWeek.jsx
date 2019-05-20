@@ -14,7 +14,6 @@ class UnconnectedCalendarWeek extends Component {
   }
 
   componentDidMount = () => {
-    // event.preventDefault();
     let data = new FormData();
     data.append("username", this.props.username);
     let update = () => {
@@ -54,8 +53,10 @@ class UnconnectedCalendarWeek extends Component {
             {dateFns.format(this.state.currentWeek, dateFormat)}
           </div>
         </div>
-        <div className="col col-end" onClick={this.nextWeek}>
-          <span className="changedate">NEXT WEEK</span>
+        <div className="col col-end">
+          <span onClick={this.nextWeek} className="changedate">
+            NEXT WEEK
+          </span>
         </div>
       </div>
     );

@@ -343,31 +343,46 @@ span:hover::before {
   position: relative;
   border-bottom: 1px dotted var(--border-color);
   height: 2em;
+  text-align: center;
 }
-
-/* .timecell:hover {
-  background-color: #ffeef0;
-  opacity: 50%;
-} */
 
 .red {
   background-color: #ff5d5d;
+  background-image: url("/workicon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
   border-bottom: none;
 }
 
 .blue {
   background-color: #fda185;
+  background-image: url("/schoolicon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
   border-bottom: none;
 }
 
 .green {
   background-color: #fbbe84;
+  background-image: url("/appointmenticon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 23px;
   border-bottom: none;
 }
 
 .yellow {
   background-color: #ffe88a;
+
   border-bottom: none;
+}
+.yellowicon {
+  background-image: url("/socialicon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
 }
 
 .reset {

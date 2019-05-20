@@ -3,6 +3,16 @@
 body {
   background-color: rgb(255, 247, 247);
   margin: 0;
+  pointer-events: all;
+}
+
+#page-mask {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .navbar {
@@ -11,6 +21,8 @@ body {
   justify-content: space-between;
   background-color: #ff5d5d;
   height: 70px;
+  z-index: 5;
+  pointer-events: all;
 }
 
 .ul {
@@ -19,6 +31,7 @@ body {
   float: left;
   margin-top: 10px;
   margin-left: 20px;
+  pointer-events: all;
 }
 
 .searchBox {
@@ -65,6 +78,11 @@ body {
   margin-top: 5px;
 }
 
+.cat-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .categories-toggle {
   align-items: center;
   background-color: #fff;
@@ -87,7 +105,8 @@ body {
 
 .categories-dropdown {
   background: #fff;
-  border: none;
+  border-color: white;
+  border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: absolute;
   top: 55px;
@@ -119,11 +138,40 @@ body {
   height: 50px;
 }
 
-.catname {
+.catwork {
   color: #ff5d5d;
   font-family: "Montserrat", sans-serif;
+  font-size: 12px;
   letter-spacing: 1px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 37px;
+}
+
+.catschool {
+  color: #ff5d5d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-left: 68px;
+}
+
+.catapp {
+  color: #ff5d5d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.catsocial {
+  color: #ff5d5d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-left: 40px;
 }
 
 .name-toprow {
@@ -348,16 +396,23 @@ hr {
   padding: 20px;
   width: 50%;
   height: 75%;
+  right: 25%;
   top: 100px;
-  left: auto;
-  right: 12.5%;
 }
 
 .settings-header {
+  display: flex;
+  flex-direction: row;
   color: #ff5d5d;
   font-size: 25px;
   margin: 10px;
   margin-left: 0px;
+}
+
+.close {
+  color: #ff5d5d;
+  cursor: pointer;
+  margin-left: 420px;
 }
 
 .settings-title {
@@ -403,6 +458,7 @@ hr {
 }
 
 .settings-gear {
+  pointer-events: all;
   cursor: pointer;
   height: 40px;
   margin-top: 5px;
@@ -463,6 +519,7 @@ hr {
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
   height: 30px;
+  pointer-events: all;
   margin-top: 25px;
   margin-left: 148px;
   text-align: center;
@@ -506,7 +563,7 @@ hr {
 }
 
 .delete-account-button {
-  /* background-color: white; */
+  background-color: white;
   background-image: url("/deleteicon.png");
   background-repeat: no-repeat;
   background-size: 30px;
@@ -514,5 +571,7 @@ hr {
   color: white;
   cursor: pointer;
   height: 30px;
+  margin-top: 40px;
+  margin-left: 250px;
   width: 30px;
 }
