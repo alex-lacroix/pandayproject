@@ -79,6 +79,26 @@ class UnconnectedCalendarWeek extends Component {
     return <div className="days row">{days}</div>;
   };
 
+  timecellOnclick = (date, hour) => {
+    console.log(this.props.usersEvents);
+    console.log("** date:", date, "hour:", hour);
+    let eventFilter = this.props.usersEvents.filter(event => {
+      let eventTime = event.eventTime;
+      let eventEndTime = event.eventEndTime;
+      let clickedTime = hour;
+
+      let numerizedEventTime = Number(eventTime.substr(0, 2));
+      let numerizedEventEndTime = Number(eventEndTime.substr(0, 2));
+      let numerizedClickedTime = Number(clickedTime.substr(0, 2));
+
+      return (
+        !(numerizedClickedTime < numerizedEventTime) &&
+        !(numerizedClickedTime > numerizedEventEndTime)
+      );
+    });
+    console.log("****", eventFilter);
+  };
+
   renderCells = () => {
     const { currentWeek, currentDay } = this.state;
     const startDay = dateFns.startOfDay(currentDay);
@@ -139,7 +159,7 @@ class UnconnectedCalendarWeek extends Component {
     };
 
     for (let i = 0; i < 7; i++) {
-      formattedDate = dateFns.format(day, dayFormat);
+      let formattedDate = dateFns.format(day, dayFormat);
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
@@ -163,7 +183,14 @@ class UnconnectedCalendarWeek extends Component {
           }
         });
         hours.push(
-          <div className={timecell}>
+          <div
+            className={timecell}
+            onClick={event => {
+              event.stopPropagation();
+              console.log("the date", formattedDate);
+              this.timecellOnclick(formattedDate, formattedHour);
+            }}
+          >
             <div className="timetext">
               {formattedDate}
               {formattedHour}

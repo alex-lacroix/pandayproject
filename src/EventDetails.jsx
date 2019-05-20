@@ -8,18 +8,27 @@ class UnconnectedEventDetails extends Component {
     };
 
     return (
-      <div className="event-details" style={customCSS}>
-        ID: {this.props.searchResult}
+      <div style={customCSS}>
         {this.props.usersEvents.map(event => {
           return (
             <div>
               {event.eventId === this.props.searchResult ? (
-                <ul>
-                  <li>{event.eventTitle}</li>
-                  <li>{event.eventDate}</li>
-                  <li>{event.eventTime}</li>
-                  <li>{event.eventEndTime}</li>
-                  <li>{event.eventNotes}</li>
+                <ul className="event-details-modal">
+                  <li
+                    className="close-event-details"
+                    onClick={this.props.toggleEventDetailsVisibility}
+                  >
+                    X
+                  </li>
+                  <li className="event-details-header">{event.eventTitle}</li>
+                  <li className="event-details-subheader">Date</li>
+                  <li className="event-details-info">{event.eventDate}</li>
+                  <li className="event-details-subheader">Time</li>
+                  <li className="event-details-info">
+                    from {event.eventTime} to {event.eventEndTime}
+                  </li>
+                  <li className="event-details-subheader">Notes</li>
+                  <li className="event-details-info">{event.eventNotes}</li>
                 </ul>
               ) : (
                 ""
