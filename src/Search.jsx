@@ -45,6 +45,7 @@ class UnconnectedSearch extends Component {
     }
   };
   handleClearSearchResults = () => {
+    console.log("on blurtriggered");
     this.setState({ searchResultsHeight: 0, searchQuery: "" });
     this.props.dispatch({ type: "store-search-results", searchResults: [] });
   };

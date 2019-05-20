@@ -5,7 +5,8 @@ const defaultState = {
   email: "",
   category: "",
   display: false,
-  usersEvents: []
+  usersEvents: [],
+  searchResult: ""
 };
 
 export const loadState = () => {
