@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Search from "./Search.jsx";
 import PickCategory from "./PickCategory.jsx";
 import AddEventDetails from "./AddEventDetails.jsx";
+import Settings from "./Settings.jsx";
 import Logout from "./Logout.jsx";
 import "./main.css";
 
@@ -12,13 +13,14 @@ class UnconnectedNavBar extends Component {
     this.state = {
       categoriesHeight: 0,
       eventDetailsHeight: 0,
+      settingsVisibility: "hidden",
       buttonDisplay: false
     };
   }
   toggleCategoriesDropdown = () => {
     let modalIsOpen =
       this.state.categoriesHeight === 250 ||
-      this.state.eventDetailsHeight === 420;
+      this.state.eventDetailsHeight === "fit-content";
     this.setState({
       categoriesHeight: modalIsOpen ? 0 : 250,
       eventDetailsHeight: 0
@@ -26,7 +28,14 @@ class UnconnectedNavBar extends Component {
   };
   toggleDetailsDropdown = () => {
     this.setState({
-      eventDetailsHeight: this.state.eventDetailsHeight === 0 ? 420 : 0
+      eventDetailsHeight:
+        this.state.eventDetailsHeight === 0 ? "fit-content" : 0
+    });
+  };
+  toggleSettingsVisibility = () => {
+    this.setState({
+      settingsVisibility:
+        this.state.settingsVisibility === "hidden" ? "visible" : "hidden"
     });
   };
 
@@ -57,6 +66,7 @@ class UnconnectedNavBar extends Component {
       <nav className="navbar">
         <ul className="ul">
           <img className="headerLogo" src="logopanda.png" />
+
           <li className="officialName">Panday.</li>
           <li>{this.renderDisplayButton()}</li>
           <li className="categories">
@@ -78,6 +88,14 @@ class UnconnectedNavBar extends Component {
           </li>
           <li>
             <Search />
+          </li>
+          <li>
+            <img
+              src="settings.png"
+              className="settings-gear"
+              onClick={this.toggleSettingsVisibility}
+            />
+            <Settings settingsVisibility={this.state.settingsVisibility} />
           </li>
           <li>
             <Logout />

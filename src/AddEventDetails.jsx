@@ -6,8 +6,8 @@ class UnconnectedAddEventDetails extends Component {
     super(props);
     this.state = {
       eventDate: "",
-      eventTime: "",
-      eventEndTime: "",
+      eventTime: "00:00",
+      eventEndTime: "00:00",
       eventTitle: "",
       eventNotes: ""
     };
@@ -56,11 +56,18 @@ class UnconnectedAddEventDetails extends Component {
         let body = JSON.parse(ResponseBody);
         console.log("**body: ", body);
       });
+    this.setState({
+      eventTitle: "",
+      eventDate: "",
+      eventTime: "00:00",
+      eventEndTime: "00:00",
+      eventNotes: ""
+    });
   };
 
   render = () => {
     let customCSS = {
-      height: `${this.props.eventDetailsHeight}px`,
+      height: `${this.props.eventDetailsHeight}`,
       border: `${
         this.props.eventDetailsHeight === 0 ? "none" : "1px solid #fbbe84"
       }`,
@@ -70,53 +77,58 @@ class UnconnectedAddEventDetails extends Component {
       <ul className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
           <li>
-            <span>Title: </span>
+            <p className="small-header">Title</p>
             <input
               className="event-title"
               type="text"
               onChange={this.handleEventTitle}
               placeholder="Enter title..."
+              value={this.state.eventTitle}
               required
             />
           </li>
 
           <li>
-            <span>Date: </span>
+            <p className="small-header">Date</p>
             <input
               className="event-date"
               type="date"
               onChange={this.handleEventDate}
+              value={this.state.eventDate}
               required
             />
           </li>
           <li>
-            <span>Start Time: </span>
+            <p className="small-header">Start Time</p>
             <input
               className="event-time"
               type="time"
               onChange={this.handleEventTime}
+              value={this.state.eventTime}
               required
             />
           </li>
           <li>
-            <span>How long? </span>
+            <p className="small-header">End Time</p>
           </li>
           <li>
             <input
               className="event-time"
               type="time"
               onChange={this.handleEventEndTime}
+              value={this.state.eventEndTime}
               required
             />
           </li>
           <li>
-            <span>Notes: </span>
+            <p className="small-header">Notes</p>
             <textarea
               className="event-notes"
               rows="6"
               cols="30"
               maxLength="140"
               onChange={this.handleEventNotes}
+              value={this.state.eventNotes}
               placeholder="ex. Don't forget.... !"
             />
           </li>

@@ -33,6 +33,7 @@ class UnconnectedChangeEmail extends Component {
   };
 
   handleSubmit = event => {
+    this.props.toggleEmailHeight();
     event.preventDefault();
     let data = new FormData();
     data.append("username", this.state.username);
@@ -58,32 +59,52 @@ class UnconnectedChangeEmail extends Component {
   };
 
   render = () => {
+    let customCSS = {
+      height: `${this.props.emailChangeHeight}`,
+      padding: `${this.props.emailChangeHeight === 0 ? 0 : "10px"}`
+    };
     return (
-      <div>
+      <ul className="display-email-change" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            onChange={this.handleUsernameChange}
-            placeholder="Username"
-          />
-          <input
-            type="text"
-            onChange={this.handlePasswordChange}
-            placeholder="Password"
-          />
-          <input
-            type="text"
-            onChange={this.handleOldEmailChange}
-            placeholder="Current Email Address"
-          />
-          <input
-            type="text"
-            onChange={this.handleNewEmailChange}
-            placeholder="New Email Address"
-          />
-          <input type="submit" value="Change my email!" />
+          <p className="small-header">Please confirm your identity</p>
+          <li>
+            <p>Username: </p>
+            <input
+              className="username"
+              type="text"
+              onChange={this.handleUsernameChange}
+            />
+          </li>
+          <p>Password: </p>
+          <li>
+            <input
+              className="password"
+              type="text"
+              onChange={this.handlePasswordChange}
+            />
+          </li>
+          <p className="small-header">Now change your email</p>
+          <li>
+            <p>What is your current email? </p>
+            <input
+              className="email"
+              type="email"
+              onChange={this.handleOldEmailChange}
+            />
+          </li>
+          <p>What is your new email? </p>
+          <li>
+            <input
+              className="email"
+              type="email"
+              onChange={this.handleNewEmailChange}
+            />
+          </li>
+          <li>
+            <input className="change-my-email" type="submit" value="Submit" />
+          </li>
         </form>
-      </div>
+      </ul>
     );
   };
 }
