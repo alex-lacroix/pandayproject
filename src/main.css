@@ -64,9 +64,9 @@ body {
   color: #f97f69;
   cursor: pointer;
   display: flex;
-  height: 50px;
+  height: 30px;
   justify-content: center;
-  width: 50px;
+  width: 30px;
   font-size: 32px;
 }
 
@@ -78,14 +78,13 @@ body {
 .categories-dropdown {
   background: #fff;
   border: none;
-  border-radius: 25px;
   position: absolute;
   top: 55px;
   left: 5px;
   overflow: hidden;
   z-index: 3;
   transition: all linear 50ms;
-  width: 240px;
+  width: 300px;
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
@@ -95,7 +94,7 @@ body {
 .event-details-dropdown {
   background: #fff;
   border: none;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   position: absolute;
   top: 55px;
   left: 5px;
@@ -105,8 +104,64 @@ body {
   padding: 10px;
 }
 
-.category-pics {
+.caticon {
+  height: 50px;
+}
+
+.catname {
+  color: #ff5d5d;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.name-toprow {
+  display: flex;
+  flex-direction: row;
+}
+
+.cat-toprow {
+  display: flex;
+  flex-direction: row;
+}
+
+.category-work {
+  background-color: #ff5d5d;
+  border-radius: 20px;
+  border-style: none;
+  cursor: pointer;
   height: 100px;
+  width: 100px;
+  margin: 9px;
+}
+
+.category-school {
+  background-color: #fda185;
+  border-radius: 20px;
+  border-style: none;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  margin: 9px;
+}
+
+.category-social {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  margin: 9px;
+  background-color: #ffe88a;
+  border-style: none;
+  border-radius: 20px;
+}
+
+.category-appointment {
+  background-color: #fbbe84;
+  border-radius: 20px;
+  border-style: none;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
   margin: 9px;
 }
 

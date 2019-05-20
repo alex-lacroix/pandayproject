@@ -224,6 +224,11 @@ main {
 }
 
 /* Calendar */
+.text {
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
 .monthCalendar {
   display: block;

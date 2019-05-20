@@ -20,7 +20,7 @@ class UnconnectedNavBar extends Component {
       this.state.categoriesHeight === 250 ||
       this.state.eventDetailsHeight === 420;
     this.setState({
-      categoriesHeight: modalIsOpen ? 0 : 250,
+      categoriesHeight: modalIsOpen ? 0 : 325,
       eventDetailsHeight: 0
     });
   };
