@@ -6,6 +6,7 @@ import AddEventDetails from "./AddEventDetails.jsx";
 import Settings from "./Settings.jsx";
 import Logout from "./Logout.jsx";
 import "./main.css";
+import Themes from "./Themes.jsx";
 
 class UnconnectedNavBar extends Component {
   constructor() {
@@ -64,8 +65,10 @@ class UnconnectedNavBar extends Component {
   render = () => {
     return (
       <nav className="navbar">
-        <img className="headerLogo" src="logopanda.png" />
-        <div className="officialName">Panday.</div>
+        <div className="pandayName">
+          <img className="headerLogo" src="logopanda.png" />
+          <div className="officialName">Panday.</div>
+        </div>
         <ul className="ul">
           <li>{this.renderDisplayButton()}</li>
           <li className="categories">
@@ -88,6 +91,7 @@ class UnconnectedNavBar extends Component {
           <li>
             <Search />
           </li>
+
           <li>
             <img
               src="settings.png"
