@@ -55,7 +55,7 @@ class UnconnectedCalendarMonth extends Component {
     const monthEnd = dateFns.endOfMonth(monthStart);
     const startDate = dateFns.startOfWeek(monthStart);
     const endDate = dateFns.endOfWeek(monthEnd);
-    const dateFormat = "D";
+    const dateFormat = "YYYY-MM-D";
     const rows = [];
     let days = [];
     let day = startDate;
@@ -64,7 +64,7 @@ class UnconnectedCalendarMonth extends Component {
 
     let coloredDot = date => {
       cell = "cell";
-      this.props.userEvents.map(event => {
+      this.props.usersEvents.map(event => {
         if (event.eventCategory === "work" && event.eventDate === date) {
           cell = cell + " work";
           return;
@@ -92,8 +92,15 @@ class UnconnectedCalendarMonth extends Component {
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
-        formattedDate = dateFns.format(day, dateFormat); //returns the formatted date in the given format, in this case D (day of the year)
-        const cloneDay = day; //prevents onClick event to always take endDate as clicked value
+        formattedDate = dateFns.format(day, dateFormat);
+        this.props.usersEvents.forEach(event => {
+          console.log(event.eventDate, formattedDate);
+          if (event.eventDate === formattedDate) {
+            coloredDot();
+            return;
+          }
+        });
+        const cloneDay = day;
         days.push(
           <div
             className={`monthCol cell ${
@@ -103,7 +110,6 @@ class UnconnectedCalendarMonth extends Component {
                 ? "selected"
                 : ""
             }`}
-            key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
             <span className="number">{formattedDate}</span>
@@ -150,7 +156,7 @@ class UnconnectedCalendarMonth extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { userEvents: state.userEvents };
+  return { usersEvents: state.usersEvents };
 };
 
 let CalendarMonth = connect(mapStateToProps)(UnconnectedCalendarMonth);

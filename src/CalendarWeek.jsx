@@ -202,7 +202,14 @@ class UnconnectedCalendarWeek extends Component {
           }
         });
         hours.push(
-          <div className={timecell}>
+          <div
+            className={timecell}
+            onClick={event => {
+              event.stopPropagation();
+              console.log("the date", formattedDate);
+              this.timecellOnclick(formattedDate, formattedHour);
+            }}
+          >
             <div className="timetext">
               {formattedDate}
               {formattedHour}
