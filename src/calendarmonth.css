@@ -286,6 +286,38 @@ main {
   cursor: pointer;
 }
 
+.work {
+  height: 10px;
+  width: 10px;
+  background-color: #ff5d5d;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.school {
+  height: 10px;
+  width: 10px;
+  background-color: #f97f69;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.app {
+  height: 10px;
+  width: 10px;
+  background-color: #fbbe84;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.social {
+  height: 10px;
+  width: 10px;
+  background-color: #ffe88a;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .monthCalendar .body .selected {
   border-left: 10px solid transparent;
   border-image-slice: 1;

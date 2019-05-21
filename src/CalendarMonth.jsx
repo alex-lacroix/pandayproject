@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ReactDOM from "react-dom";
 import dateFns from "date-fns";
 
-class CalendarMonth extends Component {
+class UnconnectedCalendarMonth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,6 +60,35 @@ class CalendarMonth extends Component {
     let days = [];
     let day = startDate;
     let formattedDate = "";
+    let cell = "cell";
+
+    let coloredDot = date => {
+      cell = "cell";
+      this.props.userEvents.map(event => {
+        if (event.eventCategory === "work" && event.eventDate === date) {
+          cell = cell + " work";
+          return;
+        } else if (
+          event.eventCategory === "school" &&
+          event.eventDate === date
+        ) {
+          cell = cell + " school";
+          return;
+        } else if (
+          event.eventCategory === "appointment" &&
+          event.eventDate === date
+        ) {
+          cell = cell + " app";
+          return;
+        } else if (
+          event.eventCategory === "social" &&
+          event.eventDate === date
+        ) {
+          cell = cell + " social";
+          return;
+        }
+      });
+    };
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
@@ -119,5 +149,10 @@ class CalendarMonth extends Component {
     );
   };
 }
+let mapStateToProps = state => {
+  return { userEvents: state.userEvents };
+};
+
+let CalendarMonth = connect(mapStateToProps)(UnconnectedCalendarMonth);
 
 export default CalendarMonth;

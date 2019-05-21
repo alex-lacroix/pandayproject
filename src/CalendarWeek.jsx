@@ -14,6 +14,7 @@ class UnconnectedCalendarWeek extends Component {
   }
 
   componentDidMount = () => {
+    // event.preventDefault();
     let data = new FormData();
     data.append("username", this.props.username);
     let update = () => {
@@ -35,7 +36,7 @@ class UnconnectedCalendarWeek extends Component {
         });
     };
 
-    setInterval(update, 2000);
+    setInterval(update, 1000);
   };
 
   renderHeader = () => {
@@ -78,26 +79,6 @@ class UnconnectedCalendarWeek extends Component {
       );
     }
     return <div className="days row">{days}</div>;
-  };
-
-  timecellOnclick = (date, hour) => {
-    console.log(this.props.usersEvents);
-    console.log("** date:", date, "hour:", hour);
-    let eventFilter = this.props.usersEvents.filter(event => {
-      let eventTime = event.eventTime;
-      let eventEndTime = event.eventEndTime;
-      let clickedTime = hour;
-
-      let numerizedEventTime = Number(eventTime.substr(0, 2));
-      let numerizedEventEndTime = Number(eventEndTime.substr(0, 2));
-      let numerizedClickedTime = Number(clickedTime.substr(0, 2));
-
-      return (
-        !(numerizedClickedTime < numerizedEventTime) &&
-        !(numerizedClickedTime > numerizedEventEndTime)
-      );
-    });
-    console.log("****", eventFilter);
   };
 
   renderCells = () => {
@@ -160,7 +141,7 @@ class UnconnectedCalendarWeek extends Component {
     };
 
     for (let i = 0; i < 7; i++) {
-      let formattedDate = dateFns.format(day, dayFormat);
+      formattedDate = dateFns.format(day, dayFormat);
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
@@ -171,27 +152,20 @@ class UnconnectedCalendarWeek extends Component {
             event.eventDate === formattedDate &&
             event.eventTime === formattedHour
           ) {
-            // console.log("does it change the color?");
+            console.log("does it change the color?");
             changeCellColor(event.eventDate, event.eventTime);
             return;
           } else if (
             event.eventDate === formattedDate &&
             event.eventEndTime === formattedHour
           ) {
-            // console.log("its resetting the color");
+            console.log("its resetting the color");
             resetCellColor();
             return;
           }
         });
         hours.push(
-          <div
-            className={timecell}
-            onClick={event => {
-              event.stopPropagation();
-              console.log("the date", formattedDate);
-              this.timecellOnclick(formattedDate, formattedHour);
-            }}
-          >
+          <div className={timecell}>
             <div className="timetext">
               {formattedDate}
               {formattedHour}
