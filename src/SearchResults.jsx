@@ -12,6 +12,10 @@ class UnconnectedSearchResults extends Component {
       eventDetailsVisibility:
         this.state.eventDetailsVisibility === "hidden" ? "visible" : "hidden"
     });
+    this.props.dispatch({
+      type: "modal-is-open",
+      modalIsOpen: this.props.modalIsOpen ? false : true
+    });
   };
   storeResult = result => {
     console.log("*** I HAVE BEEN CLICKED");
@@ -57,7 +61,7 @@ class UnconnectedSearchResults extends Component {
 }
 
 let mapStateToProps = state => {
-  return { searchResults: state.searchResults };
+  return { searchResults: state.searchResults, modalIsOpen: state.modalIsOpen };
 };
 
 let SearchResults = connect(mapStateToProps)(UnconnectedSearchResults);

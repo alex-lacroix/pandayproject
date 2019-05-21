@@ -40,6 +40,10 @@ class UnconnectedNavBar extends Component {
       settingsBackground:
         this.state.settingsBackground === "transparent" ? "#777" : "transparent"
     });
+    this.props.dispatch({
+      type: "modal-is-open",
+      modalIsOpen: this.props.modalIsOpen ? false : true
+    });
   };
 
   renderDisplayButton = () => {
@@ -115,7 +119,7 @@ class UnconnectedNavBar extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { display: state.display };
+  return { display: state.display, modalIsOpen: state.modalIsOpen };
 };
 let NavBar = connect(mapStateToProps)(UnconnectedNavBar);
 export default NavBar;

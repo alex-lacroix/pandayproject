@@ -115,6 +115,10 @@ class UnconnectedCalendarWeek extends Component {
           ? "visible"
           : "hidden"
     });
+    this.props.dispatch({
+      type: "modal-is-open",
+      modalIsOpen: this.props.modalIsOpen ? false : true
+    });
   };
 
   renderCells = () => {
@@ -290,7 +294,8 @@ let mapStateToProps = state => {
   return {
     username: state.username,
     usersEvents: state.usersEvents,
-    eventId: state.eventId
+    eventId: state.eventId,
+    modalIsOpen: state.modalIsOpen
   };
 };
 

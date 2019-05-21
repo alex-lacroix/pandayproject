@@ -14,7 +14,6 @@ import Signup from "./Signup.jsx";
 class UnconnectedApp extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentDidMount = () => {
@@ -36,9 +35,15 @@ class UnconnectedApp extends Component {
   };
 
   renderCalendar = () => {
+    console.log("OVERLAY: ", this.props.overlayHeight);
+    let customCSS = {
+      height: `${this.props.overlayHeight}vh`
+    };
+
     if (!this.props.display) {
       return (
         <div>
+          <div className="overlay" style={customCSS} />
           <NavBar />
           <CalendarWeek />
         </div>
@@ -46,6 +51,7 @@ class UnconnectedApp extends Component {
     }
     return (
       <div>
+        <div className="overlay" style={customCSS} />
         <NavBar />
         <CalendarMonth />
       </div>
@@ -73,7 +79,7 @@ class UnconnectedApp extends Component {
   };
 }
 let mapStateToProps = state => {
-  return { display: state.display };
+  return { display: state.display, overlayHeight: state.overlayHeight };
 };
 
 let App = connect(mapStateToProps)(withRouter(UnconnectedApp));

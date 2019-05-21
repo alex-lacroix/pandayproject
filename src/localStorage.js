@@ -7,7 +7,9 @@ const defaultState = {
   display: false,
   usersEvents: [],
   searchResult: "",
-  eventId: ""
+  eventId: "",
+  modalIsOpen: false,
+  overlayHeight: 0
 };
 
 export const loadState = () => {
@@ -24,7 +26,10 @@ export const loadState = () => {
 
 export const saveState = state => {
   try {
-    const serializedState = JSON.stringify(state);
+    const serializedState = JSON.stringify({
+      ...state,
+      overlayHeight: 0
+    });
     localStorage.setItem("state", serializedState);
   } catch (error) {
     // Ignore

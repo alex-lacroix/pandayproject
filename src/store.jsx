@@ -35,6 +35,13 @@ let reducer = (state, action) => {
   if (action.type === "store-eventId") {
     return { ...state, eventId: action.eventId };
   }
+  if (action.type === "modal-is-open") {
+    return {
+      ...state,
+      modalIsOpen: action.modalIsOpen,
+      overlayHeight: action.modalIsOpen ? 100 : 0
+    };
+  }
   return state;
 };
 
