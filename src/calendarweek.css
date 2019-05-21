@@ -348,41 +348,34 @@ span:hover::before {
 
 .red {
   background-color: #ff5d5d;
-  background-image: url("/workicon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 30px;
   border-bottom: none;
+  box-shadow: inset 6px 0px rgb(255, 42, 42, 1);
+  cursor: pointer;
 }
 
 .blue {
-  background-color: #fda185;
-  background-image: url("/schoolicon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 20px;
+  background-color: #f97f69;
   border-bottom: none;
+  box-shadow: inset 6px 0px rgb(247, 85, 56, 1);
+  cursor: pointer;
 }
 
 .green {
   background-color: #fbbe84;
-  background-image: url("/appointmenticon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 23px;
   border-bottom: none;
+  box-shadow: inset 6px 0px rgb(249, 164, 83, 1);
+  cursor: pointer;
 }
 
 .yellow {
   background-color: #ffe88a;
-
   border-bottom: none;
+  box-shadow: inset 6px 0px rgb(255, 222, 87, 1);
+  cursor: pointer;
 }
-.yellowicon {
-  background-image: url("/socialicon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 30px;
+
+.remove-icon {
+  background-image: none;
 }
 
 .reset {

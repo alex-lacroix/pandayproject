@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import dateFns from "date-fns";
 
 class UnconnectedAddEventDetails extends Component {
   constructor(props) {
@@ -68,16 +69,14 @@ class UnconnectedAddEventDetails extends Component {
   render = () => {
     let customCSS = {
       height: `${this.props.eventDetailsHeight}`,
-      border: `${
-        this.props.eventDetailsHeight === 0 ? "none" : "1px solid #fbbe84"
-      }`,
+      border: `${this.props.eventDetailsHeight === 0 ? "none" : "none"}`,
       padding: `${this.props.eventDetailsHeight === 0 ? 0 : "10px"}`
     };
     return (
       <ul className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
           <li>
-            <p className="add-event-subheader">Title</p>
+            <p className="add-event-subheader">TITLE</p>
             <input
               className="event-title"
               type="text"
@@ -89,7 +88,7 @@ class UnconnectedAddEventDetails extends Component {
           </li>
 
           <li>
-            <p className="add-event-subheader">Date</p>
+            <p className="add-event-subheader">DATE</p>
             <input
               className="event-date"
               type="date"
@@ -99,7 +98,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="add-event-subheader">Start Time</p>
+            <p className="add-event-subheader">START TIME</p>
             <input
               className="event-time"
               type="time"
@@ -109,7 +108,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="add-event-subheader">End Time</p>
+            <p className="add-event-subheader">END TIME</p>
           </li>
           <li>
             <input
@@ -121,7 +120,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="add-event-subheader">Notes</p>
+            <p className="add-event-subheader">NOTES</p>
             <textarea
               className="event-notes"
               rows="6"

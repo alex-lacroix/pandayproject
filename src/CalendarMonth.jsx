@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ReactDOM from "react-dom";
 import dateFns from "date-fns";
 
-class CalendarMonth extends Component {
+class UnconnectedCalendarMonth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,16 +55,44 @@ class CalendarMonth extends Component {
     const monthEnd = dateFns.endOfMonth(monthStart);
     const startDate = dateFns.startOfWeek(monthStart);
     const endDate = dateFns.endOfWeek(monthEnd);
-    const dateFormat = "D";
+    const dateFormat = "YYYY-MM-D";
+    const dayFormat = "D";
     const rows = [];
     let days = [];
     let day = startDate;
     let formattedDate = "";
+    let formattedDay = "";
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
-        formattedDate = dateFns.format(day, dateFormat); //returns the formatted date in the given format, in this case D (day of the year)
-        const cloneDay = day; //prevents onClick event to always take endDate as clicked value
+        formattedDate = dateFns.format(day, dateFormat);
+        formattedDay = dateFns.format(day, dayFormat);
+        let visibility = {};
+        this.props.usersEvents.forEach(event => {
+          if (
+            event.eventCategory === "work" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.work = true;
+          } else if (
+            event.eventCategory === "school" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.school = true;
+          } else if (
+            event.eventCategory === "appointment" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.appointment = true;
+          } else if (
+            event.eventCategory === "social" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.social = true;
+          }
+        });
+
+        const cloneDay = day;
         days.push(
           <div
             className={`monthCol cell ${
@@ -73,10 +102,27 @@ class CalendarMonth extends Component {
                 ? "selected"
                 : ""
             }`}
-            key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
-            <span className="number">{formattedDate}</span>
+            <span className="number">{formattedDay}</span>
+            <div className="dot-container">
+              <div
+                style={{ visibility: visibility.work ? "visible" : "hidden" }}
+                className="work-dot"
+              />
+              <div
+                style={{ visibility: visibility.school ? "visible" : "hidden" }}
+                className="school-dot"
+              />
+              <div
+                style={{ visibility: visibility.app ? "visible" : "hidden" }}
+                className="app-dot"
+              />
+              <div
+                style={{ visibility: visibility.social ? "visible" : "hidden" }}
+                className="social-dot"
+              />
+            </div>
             <span className="bg">{formattedDate}</span>
           </div>
         );
@@ -119,5 +165,10 @@ class CalendarMonth extends Component {
     );
   };
 }
+let mapStateToProps = state => {
+  return { usersEvents: state.usersEvents };
+};
+
+let CalendarMonth = connect(mapStateToProps)(UnconnectedCalendarMonth);
 
 export default CalendarMonth;

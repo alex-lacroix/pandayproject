@@ -16,6 +16,7 @@ class UnconnectedCalendarWeek extends Component {
   }
 
   componentDidMount = () => {
+    // event.preventDefault();
     let data = new FormData();
     data.append("username", this.props.username);
     let update = () => {
@@ -192,14 +193,14 @@ class UnconnectedCalendarWeek extends Component {
             event.eventDate === formattedDate &&
             event.eventTime === formattedHour
           ) {
-            // console.log("does it change the color?");
+            console.log("does it change the color?");
             changeCellColor(event.eventDate, event.eventTime);
             return;
           } else if (
             event.eventDate === formattedDate &&
             event.eventEndTime === formattedHour
           ) {
-            // console.log("its resetting the color");
+            console.log("its resetting the color");
             resetCellColor();
             return;
           }
@@ -235,7 +236,7 @@ class UnconnectedCalendarWeek extends Component {
 
   renderTime = () => {
     const { currentDay } = this.state;
-    const hourFormat = "H:mm A";
+    const hourFormat = "h:mm A";
     const startDay = dateFns.startOfDay(currentDay);
     const timeCol = [];
 
