@@ -32,6 +32,9 @@ let reducer = (state, action) => {
   if (action.type === "store-result") {
     return { ...state, searchResult: action.searchResult };
   }
+  if (action.type === "store-eventId") {
+    return { ...state, eventId: action.eventId };
+  }
   return state;
 };
 

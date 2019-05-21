@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import dateFns from "date-fns";
 import NavBar from "./NavBar.jsx";
+import MainDisplayEventDetails from "./MainDisplayEventDetails.jsx";
 
 class UnconnectedCalendarWeek extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class UnconnectedCalendarWeek extends Component {
     this.state = {
       currentWeek: new Date(),
       selectedDate: new Date(),
-      currentDay: new Date()
+      currentDay: new Date(),
+      mainEventDetailsVisibility: "hidden"
     };
   }
 
@@ -79,6 +81,41 @@ class UnconnectedCalendarWeek extends Component {
       );
     }
     return <div className="days row">{days}</div>;
+  };
+
+  timecellOnclick = (date, hour) => {
+    let eventFilter = this.props.usersEvents.filter(event => {
+      let eventTime = event.eventTime;
+      let eventEndTime = event.eventEndTime;
+      let clickedTime = hour;
+      let eventDate = event.eventDate;
+      let clickedDate = date;
+
+      let numerizedEventTime = Number(eventTime.substr(0, 2));
+      let numerizedEventEndTime = Number(eventEndTime.substr(0, 2));
+      let numerizedClickedTime = Number(clickedTime.substr(0, 2));
+
+      return (
+        !(numerizedClickedTime < numerizedEventTime) &&
+        !(numerizedClickedTime > numerizedEventEndTime) &&
+        eventDate === clickedDate
+      );
+    });
+    this.props.dispatch({
+      type: "store-eventId",
+      eventId: eventFilter[0].eventId
+    });
+    this.toggleMainDetailsVisibility();
+    // console.log("*event filter***", eventFilter);
+  };
+
+  toggleMainDetailsVisibility = () => {
+    this.setState({
+      mainEventDetailsVisibility:
+        this.state.mainEventDetailsVisibility === "hidden"
+          ? "visible"
+          : "hidden"
+    });
   };
 
   renderCells = () => {
@@ -227,6 +264,11 @@ class UnconnectedCalendarWeek extends Component {
   render = () => {
     return (
       <div className="calendarweek">
+        <MainDisplayEventDetails
+          eventId={this.props.eventId}
+          mainEventDetailsVisibility={this.state.mainEventDetailsVisibility}
+          toggleMainDetailsVisibility={this.toggleMainDetailsVisibility}
+        />
         {this.renderTime()}
         <div className="calendar">
           {this.renderHeader()}
@@ -239,7 +281,11 @@ class UnconnectedCalendarWeek extends Component {
 }
 
 let mapStateToProps = state => {
-  return { username: state.username, usersEvents: state.usersEvents };
+  return {
+    username: state.username,
+    usersEvents: state.usersEvents,
+    eventId: state.eventId
+  };
 };
 
 let CalendarWeek = connect(mapStateToProps)(UnconnectedCalendarWeek);
