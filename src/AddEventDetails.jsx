@@ -5,7 +5,7 @@ class UnconnectedAddEventDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventDate: "",
+      eventDate: "2019-05-21",
       eventTime: "00:00",
       eventEndTime: "00:00",
       eventTitle: "",
@@ -58,7 +58,7 @@ class UnconnectedAddEventDetails extends Component {
       });
     this.setState({
       eventTitle: "",
-      eventDate: "",
+      eventDate: "2019-05-21",
       eventTime: "00:00",
       eventEndTime: "00:00",
       eventNotes: ""
@@ -77,7 +77,7 @@ class UnconnectedAddEventDetails extends Component {
       <ul className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
           <li>
-            <p className="small-header">Title</p>
+            <p className="add-event-subheader">Title</p>
             <input
               className="event-title"
               type="text"
@@ -89,7 +89,7 @@ class UnconnectedAddEventDetails extends Component {
           </li>
 
           <li>
-            <p className="small-header">Date</p>
+            <p className="add-event-subheader">Date</p>
             <input
               className="event-date"
               type="date"
@@ -99,7 +99,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="small-header">Start Time</p>
+            <p className="add-event-subheader">Start Time</p>
             <input
               className="event-time"
               type="time"
@@ -109,7 +109,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="small-header">End Time</p>
+            <p className="add-event-subheader">End Time</p>
           </li>
           <li>
             <input
@@ -121,7 +121,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="small-header">Notes</p>
+            <p className="add-event-subheader">Notes</p>
             <textarea
               className="event-notes"
               rows="6"

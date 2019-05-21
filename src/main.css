@@ -257,7 +257,6 @@ body {
   transform: translate(-50%, 0) scaleX(1);
 }
 
-.add-to-calendar,
 .change-my-pass,
 .change-my-email {
   background-color: #ff5d5d;
@@ -270,8 +269,26 @@ body {
   margin-top: 10px;
   text-align: center;
 }
+.add-to-calendar {
+  background-color: white;
+  border: 1px solid #ff5d5d;
+  border-radius: 10px;
+  color: #ff5d5d;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  height: 30px;
+  /* pointer-events: all; */
+  text-align: center;
+  width: 110px;
+  position: relative;
+  left: 140px;
+}
 
-.add-to-calendar:hover,
+.add-to-calendar:hover {
+  color: #f97f69;
+}
+
 .change-my-pass:hover,
 .change-my-email:hover {
   cursor: pointer;
@@ -282,16 +299,26 @@ body {
 
 .event-date,
 .event-time,
-.event-title,
 .username,
 .email,
 .password {
   font-family: "Montserrat", sans-serif;
   color: #777;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 5px 10px;
   border: solid 1px #fda185;
   margin: 5px;
+  letter-spacing: 1px;
+}
+
+.event-title {
+  font-family: "Montserrat", sans-serif;
+  color: #777;
+  border-radius: 10px;
+  padding: 7px 10px;
+  border: solid 1px #fda185;
+  margin: 5px;
+  letter-spacing: 1px;
 }
 
 .event-hours,
@@ -309,7 +336,7 @@ body {
   font-family: "Montserrat", sans-serif;
   resize: none;
   color: #777;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 10px 5px 10px 10px;
   border: solid 1px #fda185;
   margin: 5px;
@@ -453,6 +480,18 @@ hr {
   letter-spacing: 1px;
   margin-left: 0;
   margin-top: 30px;
+  border-radius: 25px;
+}
+
+.add-event-subheader {
+  position: relative;
+  background: none;
+  color: #ff5d5d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-left: 0;
+  margin-top: 15px;
   border-radius: 25px;
 }
 
