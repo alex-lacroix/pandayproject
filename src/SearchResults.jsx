@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import EventDetails from "./EventDetails.jsx";
+import SearchResultEventDetails from "./SearchResultEventDetails.jsx";
 
 class UnconnectedSearchResults extends Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class UnconnectedSearchResults extends Component {
             })
           )}
         </ul>
-        <EventDetails
+        <SearchResultEventDetails
           eventDetailsVisibility={this.state.eventDetailsVisibility}
           toggleEventDetailsVisibility={this.toggleEventDetailsVisibility}
         />

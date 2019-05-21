@@ -6,7 +6,8 @@ const defaultState = {
   category: "",
   display: false,
   usersEvents: [],
-  searchResult: ""
+  searchResult: "",
+  eventId: ""
 };
 
 export const loadState = () => {

@@ -20,7 +20,7 @@ class UnconnectedNavBar extends Component {
   }
   toggleCategoriesDropdown = () => {
     let modalIsOpen =
-      this.state.categoriesHeight === 250 ||
+      this.state.categoriesHeight === 325 ||
       this.state.eventDetailsHeight === "fit-content";
     this.setState({
       categoriesHeight: modalIsOpen ? 0 : 325,
