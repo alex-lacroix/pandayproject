@@ -38,7 +38,7 @@ class UnconnectedCalendarWeek extends Component {
         });
     };
 
-    setInterval(update, 1000);
+    setInterval(update, 2000);
   };
 
   renderHeader = () => {
@@ -178,7 +178,7 @@ class UnconnectedCalendarWeek extends Component {
     };
 
     for (let i = 0; i < 7; i++) {
-      formattedDate = dateFns.format(day, dayFormat);
+      let formattedDate = dateFns.format(day, dayFormat);
       day = dateFns.addDays(day, 1);
 
       for (let j = 0; j < 24; j++) {
@@ -232,7 +232,7 @@ class UnconnectedCalendarWeek extends Component {
 
   renderTime = () => {
     const { currentDay } = this.state;
-    const hourFormat = "H:mm A";
+    const hourFormat = "h:mm A";
     const startDay = dateFns.startOfDay(currentDay);
     const timeCol = [];
 

@@ -56,50 +56,42 @@ class UnconnectedCalendarMonth extends Component {
     const startDate = dateFns.startOfWeek(monthStart);
     const endDate = dateFns.endOfWeek(monthEnd);
     const dateFormat = "YYYY-MM-D";
+    const dayFormat = "D";
     const rows = [];
     let days = [];
     let day = startDate;
     let formattedDate = "";
-    let cell = "cell";
-
-    let coloredDot = date => {
-      cell = "cell";
-      this.props.usersEvents.map(event => {
-        if (event.eventCategory === "work" && event.eventDate === date) {
-          cell = cell + " work";
-          return;
-        } else if (
-          event.eventCategory === "school" &&
-          event.eventDate === date
-        ) {
-          cell = cell + " school";
-          return;
-        } else if (
-          event.eventCategory === "appointment" &&
-          event.eventDate === date
-        ) {
-          cell = cell + " app";
-          return;
-        } else if (
-          event.eventCategory === "social" &&
-          event.eventDate === date
-        ) {
-          cell = cell + " social";
-          return;
-        }
-      });
-    };
+    let formattedDay = "";
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat);
+        formattedDay = dateFns.format(day, dayFormat);
+        let visibility = {};
         this.props.usersEvents.forEach(event => {
-          console.log(event.eventDate, formattedDate);
-          if (event.eventDate === formattedDate) {
-            coloredDot();
-            return;
+          if (
+            event.eventCategory === "work" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.work = true;
+          } else if (
+            event.eventCategory === "school" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.school = true;
+          } else if (
+            event.eventCategory === "appointment" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.appointment = true;
+          } else if (
+            event.eventCategory === "social" &&
+            event.eventDate === formattedDate
+          ) {
+            visibility.social = true;
           }
         });
+
         const cloneDay = day;
         days.push(
           <div
@@ -112,7 +104,25 @@ class UnconnectedCalendarMonth extends Component {
             }`}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
           >
-            <span className="number">{formattedDate}</span>
+            <span className="number">{formattedDay}</span>
+            <div className="dot-container">
+              <div
+                style={{ visibility: visibility.work ? "visible" : "hidden" }}
+                className="work-dot"
+              />
+              <div
+                style={{ visibility: visibility.school ? "visible" : "hidden" }}
+                className="school-dot"
+              />
+              <div
+                style={{ visibility: visibility.app ? "visible" : "hidden" }}
+                className="app-dot"
+              />
+              <div
+                style={{ visibility: visibility.social ? "visible" : "hidden" }}
+                className="social-dot"
+              />
+            </div>
             <span className="bg">{formattedDate}</span>
           </div>
         );

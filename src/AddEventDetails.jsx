@@ -69,16 +69,14 @@ class UnconnectedAddEventDetails extends Component {
   render = () => {
     let customCSS = {
       height: `${this.props.eventDetailsHeight}`,
-      border: `${
-        this.props.eventDetailsHeight === 0 ? "none" : "1px solid #fbbe84"
-      }`,
+      border: `${this.props.eventDetailsHeight === 0 ? "none" : "none"}`,
       padding: `${this.props.eventDetailsHeight === 0 ? 0 : "10px"}`
     };
     return (
       <ul className="event-details-dropdown" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
           <li>
-            <p className="small-header">Title</p>
+            <p className="small-header">TITLE</p>
             <input
               className="event-title"
               type="text"
@@ -90,7 +88,7 @@ class UnconnectedAddEventDetails extends Component {
           </li>
 
           <li>
-            <p className="small-header">Date</p>
+            <p className="small-header">DATE</p>
             <input
               className="event-date"
               type="date"
@@ -100,7 +98,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="small-header">Start Time</p>
+            <p className="small-header">START TIME</p>
             <input
               className="event-time"
               type="time"
@@ -110,7 +108,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="small-header">End Time</p>
+            <p className="small-header">END TIME</p>
           </li>
           <li>
             <input
@@ -122,7 +120,7 @@ class UnconnectedAddEventDetails extends Component {
             />
           </li>
           <li>
-            <p className="small-header">Notes</p>
+            <p className="small-header">NOTES</p>
             <textarea
               className="event-notes"
               rows="6"

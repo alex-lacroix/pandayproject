@@ -286,41 +286,44 @@ main {
   cursor: pointer;
 }
 
-.work {
-  height: 10px;
-  width: 10px;
+.dot-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-left: 25%;
+}
+
+.work-dot {
+  height: 15px;
+  width: 15px;
   background-color: #ff5d5d;
   border-radius: 50%;
-  display: inline-block;
+
+  margin: 5px 5px;
 }
 
-.school {
-  height: 10px;
-  width: 10px;
+.school-dot {
+  height: 15px;
+  width: 15px;
   background-color: #f97f69;
   border-radius: 50%;
-  display: inline-block;
+  margin: 5px 5px;
 }
 
-.app {
-  height: 10px;
-  width: 10px;
+.app-dot {
+  height: 15px;
+  width: 15px;
   background-color: #fbbe84;
   border-radius: 50%;
-  display: inline-block;
+  margin: 5px 5px;
 }
 
-.social {
-  height: 10px;
-  width: 10px;
+.social-dot {
+  height: 15px;
+  width: 15px;
   background-color: #ffe88a;
   border-radius: 50%;
-  display: inline-block;
-}
-
-.monthCalendar .body .selected {
-  border-left: 10px solid transparent;
-  border-image-slice: 1;
+  margin: 5px 5px;
 }
 
 .monthCalendar .body .monthRow {
