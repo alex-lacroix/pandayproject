@@ -26,9 +26,7 @@ class UnconnectedSearchResults extends Component {
   render = () => {
     let customCSS = {
       height: `${this.props.searchResultsHeight}`,
-      border: `${
-        this.props.searchResultsHeight === 0 ? "none" : "1px solid #fbbe84"
-      }`,
+      border: `${this.props.searchResultsHeight === 0 ? "none" : "none"}`,
       padding: `${this.props.searchResultsHeight === 0 ? 0 : "20px"}`
     };
     return (

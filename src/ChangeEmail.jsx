@@ -66,43 +66,47 @@ class UnconnectedChangeEmail extends Component {
     return (
       <ul className="display-email-change" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
-          <h3>Update your email</h3>
-          <p className="small-header">Please confirm your identity</p>
+          <h3 className="change-email-title">Update Email</h3>
+
+          <p className="change-small-header">CONFIRM YOUR IDENTITY</p>
+          <hr />
           <li>
-            <p>Username: </p>
             <input
               className="username"
               type="text"
               onChange={this.handleUsernameChange}
+              placeholder="Username"
             />
           </li>
-          <p>Password: </p>
+
           <li>
             <input
               className="password"
               type="text"
               onChange={this.handlePasswordChange}
+              placeholder="Password"
             />
           </li>
-          <p className="small-header">Now change your email</p>
+          <p className="change-small-header">UPDATE EMAIL</p>
+          <hr />
           <li>
-            <p>What is your current email? </p>
             <input
               className="email"
               type="email"
               onChange={this.handleOldEmailChange}
+              placeholder="Current Email"
             />
           </li>
-          <p>What is your new email? </p>
           <li>
             <input
               className="email"
               type="email"
               onChange={this.handleNewEmailChange}
+              placeholder="New Email"
             />
           </li>
           <li>
-            <input className="change-my-email" type="submit" value="Submit" />
+            <input className="change-my-email" type="submit" value="SUBMIT" />
           </li>
         </form>
       </ul>

@@ -72,13 +72,13 @@ class UnconnectedSettings extends Component {
             </div>
             <div className="buttons-flex">
               <button
-                onClick={this.togglePasswordHeight}
+                onClick={this.toggleEmailHeight}
                 className="change-settings-button"
               >
                 CHANGE
               </button>
               <button
-                onClick={this.toggleEmailHeight}
+                onClick={this.togglePasswordHeight}
                 className="change-settings-button"
               >
                 CHANGE
