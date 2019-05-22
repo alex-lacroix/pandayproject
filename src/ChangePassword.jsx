@@ -69,42 +69,48 @@ class UnconnectedChangePassword extends Component {
     return (
       <ul className="display-password-change" style={customCSS}>
         <form onSubmit={this.handleSubmit}>
-          <p className="small-header">Please confirm your identity</p>
+          <h3 className="change-email-title">Update Password</h3>
+
+          <p className="change-small-header">CONFIRM YOUR IDENTITY</p>
+          <hr />
           <li>
-            <p>Username: </p>
             <input
               className="username"
               type="text"
               onChange={this.handleUsernameChange}
+              placeholder="Username"
             />
           </li>
-          <p>Email Address: </p>
+
           <li>
             <input
               className="email"
               type="email"
               onChange={this.handleEmailChange}
+              placeholder="Password"
             />
           </li>
-          <p className="small-header">Now change your password</p>
+          <p className="change-small-header">UPDATE PASSWORD</p>
+          <hr />
           <li>
-            <p>What is your current password? </p>
             <input
-              className="password"
+              className="email"
               type="text"
               onChange={this.handleOldPasswordChange}
+              placeholder="Current Password"
             />
           </li>
-          <p>What will your new password be? </p>
+
           <li>
             <input
-              className="password"
+              className="email"
               type="text"
               onChange={this.handleNewPasswordChange}
+              placeholder="New Password"
             />
           </li>
           <li>
-            <input className="change-my-pass" type="submit" value="Submit" />
+            <input className="change-my-email" type="submit" value="SUBMIT" />
           </li>
         </form>
       </ul>

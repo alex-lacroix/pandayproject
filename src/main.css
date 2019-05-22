@@ -260,15 +260,19 @@ body {
 
 .change-my-pass,
 .change-my-email {
-  background-color: #ff5d5d;
-  opacity: 0.8;
-  border: none;
-  border-radius: 25px;
-  color: white;
-  font-size: 20px;
-  padding: 5px 10px;
-  margin-top: 10px;
+  background-color: white;
+  border: 1px solid #ff5d5d;
+  border-radius: 10px;
+  color: #ff5d5d;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  height: 30px;
+  margin-top: 15px;
+  margin-left: 5px;
   text-align: center;
+  width: 110px;
+  position: relative;
 }
 .add-to-calendar {
   background-color: white;
@@ -289,15 +293,6 @@ body {
 .add-to-calendar:hover {
   color: #f97f69;
 }
-
-.change-my-pass:hover,
-.change-my-email:hover {
-  cursor: pointer;
-  background-color: #ff5d5d;
-  transition: opacity 0.3s;
-  opacity: 1;
-}
-
 .username,
 .email,
 .password {
@@ -316,7 +311,7 @@ body {
   color: #f97f69;
   border-radius: 10px;
   padding: 5px 10px;
-  border: solid 1px #fda185;
+  border: solid 1px #ff5d5d;
   margin: 5px;
   letter-spacing: 1px;
 }
@@ -492,11 +487,6 @@ hr {
   margin: 10px;
   margin-left: 0px;
   margin-top: 40px;
-}
-
-.display-password-change,
-.display-email-change {
-  overflow: hidden;
 }
 
 .set-info,
@@ -693,4 +683,38 @@ hr {
   opacity: 0.5;
   width: 100%;
   z-index: 3;
+}
+
+/* -------------------- CHANGE PASSWORD AND EMAIL ------------------------- */
+
+.display-password-change,
+.display-email-change {
+  overflow: hidden;
+}
+
+.change-email-title {
+  color: #ff5d5d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.change-small-header {
+  color: #fda185;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+.username::placeholder {
+  color: #fda185;
+}
+
+.password::placeholder {
+  color: #fda185;
+}
+
+.email::placeholder {
+  color: #fda185;
 }
