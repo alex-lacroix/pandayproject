@@ -298,13 +298,11 @@ body {
   opacity: 1;
 }
 
-.event-date,
-.event-time,
 .username,
 .email,
 .password {
   font-family: "Montserrat", sans-serif;
-  color: #777;
+  color: black;
   border-radius: 10px;
   padding: 5px 10px;
   border: solid 1px #fda185;
@@ -312,9 +310,28 @@ body {
   letter-spacing: 1px;
 }
 
+.event-date,
+.event-time {
+  font-family: "Montserrat", sans-serif;
+  color: #f97f69;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: solid 1px #fda185;
+  margin: 5px;
+  letter-spacing: 1px;
+}
+
+.username::placeholder,
+.email::placeholder,
+.password::placeholder {
+  color: #f97f69;
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
 .event-title {
   font-family: "Montserrat", sans-serif;
-  color: #777;
+  color: black;
   border-radius: 10px;
   padding: 7px 10px;
   border: solid 1px #fda185;
@@ -322,7 +339,13 @@ body {
   letter-spacing: 1px;
 }
 
-.event-hours,
+.event-title::placeholder {
+  color: #f97f69;
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
+/* .event-hours,
 .event-minutes {
   font-family: "Montserrat", sans-serif;
   color: #777;
@@ -331,38 +354,52 @@ body {
   padding: 5px 10px;
   border: solid 1px #fda185;
   margin: 5px;
-}
+} */
 
 .event-notes {
   font-family: "Montserrat", sans-serif;
   resize: none;
-  color: #777;
+  color: black;
   border-radius: 10px;
   padding: 10px 5px 10px 10px;
   border: solid 1px #fda185;
   margin: 5px;
 }
 
+.event-notes::placeholder {
+  color: #f97f69;
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
 .search-results {
   font-family: "Montserrat", sans-serif;
-  background: white;
-  color: #777;
-  border: none;
-  border-radius: 25px;
+  background: #fff;
+
+  border-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: absolute;
+  width: 310px;
   overflow: hidden;
   z-index: 3;
   transition: all linear 50ms;
   padding: 20px;
-  width: 310px;
 }
 
 .results-details {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  color: #ff5d5d;
+  opacity: 0.8;
 }
 
 .results-details:hover {
   cursor: pointer;
+  opacity: 1;
+}
+
+.search-event-title {
+  text-transform: capitalize;
 }
 
 .toggleButton {
@@ -645,6 +682,7 @@ hr {
   right: 15px;
   top: 15px;
   cursor: pointer;
+  font-size: 25px;
 }
 
 .overlay {

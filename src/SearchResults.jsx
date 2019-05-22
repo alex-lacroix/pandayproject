@@ -26,10 +26,10 @@ class UnconnectedSearchResults extends Component {
   render = () => {
     let customCSS = {
       height: `${this.props.searchResultsHeight}`,
-      border: `${
-        this.props.searchResultsHeight === 0 ? "none" : "1px solid #fbbe84"
-      }`,
-      padding: `${this.props.searchResultsHeight === 0 ? 0 : "20px"}`
+      border: `${this.props.searchResultsHeight === 0 ? "none" : "none"}`,
+      padding: `${
+        this.props.searchResultsHeight === 0 ? 0 : "20px 20px 10px 20px "
+      }`
     };
     return (
       <div>
@@ -41,10 +41,9 @@ class UnconnectedSearchResults extends Component {
               return (
                 <div onMouseDown={() => this.storeResult(result.eventId)}>
                   <ul className="results-details">
-                    <li>{result.eventTitle}</li>
+                    <li className="search-event-title">{result.eventTitle}</li>
                     <li>{result.eventDate}</li>
                     <li>{result.eventTime}</li>
-                    <li>{result.eventNotes.slice(0, 25) + "..."}</li>
                   </ul>
                 </div>
               );

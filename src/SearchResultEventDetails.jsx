@@ -16,12 +16,12 @@ class UnconnectedEventDetails extends Component {
     return (
       <div style={customCSS}>
         <ul className="event-details-modal">
-          <li
+          <span
             className="close-event-details"
             onClick={this.props.toggleEventDetailsVisibility}
           >
-            X
-          </li>
+            &times;
+          </span>
           <li className="event-details-header">{event.eventTitle}</li>
           <li className="event-details-subheader">Date</li>
           <li className="event-details-info">{event.eventDate}</li>
