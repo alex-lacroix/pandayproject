@@ -115,7 +115,9 @@ class UnconnectedCalendarMonth extends Component {
                 className="school-dot"
               />
               <div
-                style={{ visibility: visibility.app ? "visible" : "hidden" }}
+                style={{
+                  visibility: visibility.appointment ? "visible" : "hidden"
+                }}
                 className="app-dot"
               />
               <div
